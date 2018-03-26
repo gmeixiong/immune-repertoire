@@ -9,3 +9,14 @@ sudo apt install cmake
 git clone https://github.com/yana-safonova/ig_repertoire_constructor/
 cd ig_repertoire_constructor
 make
+./igrec.py --test
+./barcoded_igrec.py --test
+
+
+# Get Cells labeled as "B cell" (or a child, e.g. "immature B cell") in MACA data
+cd
+git clone https://github.com/czbiohub/olgabot-aws-scratch/
+cd ~/olgabot-aws-scratch
+git checkout igrec
+cd /mnt/data
+cp ~/olgab
