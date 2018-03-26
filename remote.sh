@@ -19,4 +19,4 @@ git clone https://github.com/czbiohub/olgabot-aws-scratch/
 cd ~/olgabot-aws-scratch
 git checkout igrec
 cd /mnt/data
-cp ~/olgab
+cp ~/olgabot-aws-scratch/maca_bcell_or_children_ids.csv  .
