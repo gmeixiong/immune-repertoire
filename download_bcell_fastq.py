@@ -1,0 +1,46 @@
+import pandas as pd
+import boto3
+import botocore
+import io
+
+
+bcell_ids = pd.read_csv('maca_bcell_or_children_ids.csv', squeeze=True)
+bcell_ids_dashes = bcell_ids.str.replace('.', '-')
+
+s3 = boto3.resource('s3')
+bucket = s3.Bucket('czbiohub-maca')
+
+remux_data = bucket.objects.filter(Prefix='remux_data/')
+
+fastqs = [x.key.endswith('fastq.gz') for x in remux_data]
+
+def is_bcell_fastq(key):
+    name = key.key
+    is_fastq = name.endswith('fastq.gz')
+    has_bcell_id = bcell_ids_dashes.str.startswith(name).any()
+    return is_fastq and has_bcell_id
+
+bcell_fastqs = filter(is_bcell_fastq, )
+
+
+### Serial download
+
+for bcell_fastq in bcell_fastqs:
+    bucket.download_file(bcell_fastq)
+
+
+### Parallelized
+
+import threading
+
+
+def download(key):
+    s3 = boto3.resource('s3')
+    bucket = s3.Bucket('czbiohub-maca')
+    bucket.download_file(key)
+
+
+bcell_fastqs = filter(is_bcell_fastq, bucket.objects.all())
+
+for bcell_fastq in bcell_fastqs:
+    t = threading.Thread(target=download, args=(bcell_fastq,)).start()
