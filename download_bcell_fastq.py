@@ -12,15 +12,14 @@ bucket = s3.Bucket('czbiohub-maca')
 
 remux_data = bucket.objects.filter(Prefix='remux_data/')
 
-fastqs = [x.key.endswith('fastq.gz') for x in remux_data]
+fastqs = [x for x in remux_data if x.key.endswith('fastq.gz')]
 
 def is_bcell_fastq(key):
     name = key.key
-    is_fastq = name.endswith('fastq.gz')
     has_bcell_id = bcell_ids_dashes.str.startswith(name).any()
     return is_fastq and has_bcell_id
 
-bcell_fastqs = filter(is_bcell_fastq, )
+bcell_fastqs = filter(is_bcell_fastq, fastqs)
 
 
 ### Serial download
