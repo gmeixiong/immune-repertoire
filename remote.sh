@@ -27,8 +27,14 @@ mkdir krista
 cd krista
 sudo aws s3 cp --recursive \
   s3://czbiohub-seqbot/fastqs/180128_M05295_0078_000000000-BJNBT .
-source activate python2.7-env
-/home/ubuntu/ig_repertoire_constructor/igrec.py -1 IgSeqBX1_S1_R1_001.fastq -2 IgSeqBX1_S1_R2_001.fastq
+
+
+# Make subset of first 10k reads
+sudo head -n 40000 IgSeqBX1_S1_R1_001.fastq > IgSeqBX1_S1_R1_001_first10k.fastq
+sudo head -n 40000 IgSeqBX1_S1_R2_001.fastq > IgSeqBX1_S1_R2_001_first10k.fastq
+
+bash ~/olgabot-aws-scratch/barcoded_igrec.sh
+
 
 source activate python2.7-env
 /home/ubuntu/ig_repertoire_constructor/barcoded_igrec.py \
