@@ -35,7 +35,22 @@ sudo aws s3 cp --recursive \
 sudo head -n 40000 IgSeqBX1_S1_R1_001.fastq > IgSeqBX1_S1_R1_001_first10k.fastq
 sudo head -n 40000 IgSeqBX1_S1_R2_001.fastq > IgSeqBX1_S1_R2_001_first10k.fastq
 
-bash ~/olgabot-aws-scratch/barcoded_igrec.sh
+./run_barcoded_igrec.py IgSeqBX1_S1_R1_001_first10k.fastq \
+    IgSeqBX1_S1_R2_001_first10k.fastq barcoded_igrec_first10k
+
+# Make subset of first 100k reads
+sudo head -n 400000 IgSeqBX1_S1_R1_001.fastq > IgSeqBX1_S1_R1_001_first100k.fastq
+sudo head -n 400000 IgSeqBX1_S1_R2_001.fastq > IgSeqBX1_S1_R2_001_first100k.fastq
+
+./run_barcoded_igrec.py IgSeqBX1_S1_R1_001_first100k.fastq \
+    IgSeqBX1_S1_R2_001_first100k.fastq barcoded_igrec_first100k
+
+# Make subset of first 1 million reads
+sudo head -n 4000000 IgSeqBX1_S1_R1_001.fastq > IgSeqBX1_S1_R1_001_first1M.fastq
+sudo head -n 4000000 IgSeqBX1_S1_R2_001.fastq > IgSeqBX1_S1_R2_001_first1M.fastq
+
+./run_barcoded_igrec.py IgSeqBX1_S1_R1_001_first1M.fastq \
+    IgSeqBX1_S1_R2_001_first1M.fastq barcoded_igrec_first1M
 
 
 source activate python2.7-env
