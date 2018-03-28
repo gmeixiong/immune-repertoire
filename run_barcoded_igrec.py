@@ -21,7 +21,7 @@ export LANG=en_US.UTF-8
 @click.argument('read2')
 @click.argument('output_folder')
 def cli(read1, read2, output_folder):
-    os.path.mkdirs(output_folder)
+    os.mkdirs(output_folder)
 
     command = f'sudo /home/ubuntu/anaconda/envs/python2.7-env/bin/python2.7 ' \
               f'/home/ubuntu/ig_repertoire_constructor/barcoded_igrec.py ' \
