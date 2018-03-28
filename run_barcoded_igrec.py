@@ -23,11 +23,15 @@ def cli(read1, read2, output_folder):
               f'/home/ubuntu/ig_repertoire_constructor/barcoded_igrec.py ' \
               f'-1 {read1} ' \
               f'-2 {read2} ' \
-              f'--output {output_folder} --loci IGH ' \
-              f'> >(tee -a {output_folder}/stdout.txt) 2> ' \
-              f'>(tee -a {output_folder}/stderr.txt >&2)'
+              f'--output {output_folder} --loci IGH '
     command = shlex.split(command)
-    subprocess.Popen(command)
+
+    stdout = f'{output_folder}/stdout.txt'
+    stderr = f'{output_folder}/stde4r.txt'
+
+    with open(stdout, 'w') as file_out:
+        with open(stderr, 'w') as file_err:
+            subprocess.Popen(command, stdout=file_out, stderr=file_err)
 
 
 if __name__ == '__main__':
