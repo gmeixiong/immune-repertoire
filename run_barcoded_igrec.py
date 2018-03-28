@@ -1,8 +1,10 @@
 #!/usr/bin/env python3.6
 
-import click
+import os
 import shlex
 import subprocess
+
+import click
 
 """
 May need to set "locales" for Unicode because ASCII is stupid.
@@ -19,6 +21,8 @@ export LANG=en_US.UTF-8
 @click.argument('read2')
 @click.argument('output_folder')
 def cli(read1, read2, output_folder):
+    os.path.mkdirs(output_folder)
+
     command = f'sudo /home/ubuntu/anaconda/envs/python2.7-env/bin/python2.7 ' \
               f'/home/ubuntu/ig_repertoire_constructor/barcoded_igrec.py ' \
               f'-1 {read1} ' \
