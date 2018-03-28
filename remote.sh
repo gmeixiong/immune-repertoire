@@ -3,6 +3,8 @@ screen
 
 conda create --yes -n python2.7-env python=2.7 biopython matplotlib scipy numpy pandas seaborn
 source activate python2.7-env
+# Force linking of env python2
+sudo ln -s /home/ubuntu/anaconda/envs/python2.7-env/bin/python2.7 /usr/bin/python2
 
 sudo apt install cmake
 
