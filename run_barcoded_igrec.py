@@ -34,7 +34,7 @@ def cli(read1, read2, output_folder):
     command = shlex.split(command)
 
     stdout = f'{output_folder}/stdout.txt'
-    stderr = f'{output_folder}/stde4r.txt'
+    stderr = f'{output_folder}/stderr.txt'
 
     with open(stdout, 'w') as file_out:
         with open(stderr, 'w') as file_err:
