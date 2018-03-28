@@ -1,0 +1,549 @@
+Log will be written to barcoded_igrec_first100k/igrec.log
+
+
+Command line: /home/ubuntu/ig_repertoire_constructor/barcoded_igrec.py -1 /mnt/data/krista/rawdata/IgSeqBX1_S1_R1_001_first100k.fastq -2 /mnt/data/krista/rawdata/IgSeqBX1_S1_R2_001_first100k.fastq --output barcoded_igrec_first100k --loci IGH
+
+make: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/compilation'
+make -C /home/ubuntu/ig_repertoire_constructor -j7
+make[1]: Entering directory '/home/ubuntu/ig_repertoire_constructor'
+mkdir -p build/release
+cd build/release && cmake ../.. -DCMAKE_BUILD_TYPE=""RelWithAsserts"" -DCMAKE_INSTALL_PREFIX="/usr/local" -Wno-dev
+-- Boost version: 1.63.0
+Making Release Configuration...
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ubuntu/ig_repertoire_constructor/build/release
+make -C build/release all
+make[2]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[3]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[  4%] Built target z
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[  6%] Built target bz2
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[  6%] Built target boost_random
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 12%] Built target jemalloc
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 13%] Built target boost_system
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 13%] Built target gtest
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 14%] Built target gtest_main
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 14%] Built target gmock
+[ 17%] Built target boost_filesystem
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 19%] Built target boost_iostreams
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 20%] Built target gmock_main
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 20%] Built target build_info
+[ 27%] Built target yaml-cpp
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 28%] Built target fastq_to_fasta
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 28%] Built target test_build_info
+[ 44%] Built target metis
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 44%] Built target merged_reads_stats_calculator
+[ 48%] Built target boost_regex
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 52%] Built target boost_program_options
+[ 53%] Built target input
+[ 55%] Built target graph_utils
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 56%] Built target paired_read_merger
+[ 57%] Built target core
+[ 57%] Built target ig_component_splitter
+[ 57%] Built target simulate_barcoded
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 58%] Built target ig_swgraph_construct
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 59%] Built target ig_trie_compressor
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 60%] Built target dense_sgraph_finder_library
+[ 61%] Built target print_graph_decomposition_stats
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 61%] Built target analyze_intermed_clusters
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 61%] Built target check_graph_symmetry
+[ 62%] Built target pairwise_dist_stats
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 63%] Built target find_bad_cluster
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 64%] Built target simulate_tiny_dataset
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 65%] Built target reads_by_umi_stats
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 67%] Built target umi_graph
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 68%] Built target umi_to_fastq
+[ 69%] Built target dists_inside_clusters
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 70%] Built target report_pcr_error_rate
+[ 71%] Built target report_umi_abundance
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 72%] Built target umi_correction_stats
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 73%] Built target umi_naive
+[ 74%] Built target dense_sgraph_finder
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 76%] Built target cluster_reads
+[ 80%] Built target vdj_utils
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 81%] Built target algorithms
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 84%] Built target vj_finder_library
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 85%] Built target vj_finder
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 89%] Built target cdr_labeler_library
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 90%] Built target cdr_labeler
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 98%] Built target ig_simulator_library
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[100%] Built target ig_simulator
+make[3]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[2]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[1]: Leaving directory '/home/ubuntu/ig_repertoire_constructor'
+make: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/compilation'
+version: <unknown>
+git hash: 06599cee9f67f8d4f3646a02eafc5c01eaa25053
+git hash7: 06599ce
+git refspec: refs/heads/master
+git describe: 
+git tag: 
+cmake version: 3.5.1
+OS version: Linux-4.4.0-1049-aws
+CPU: x86_64
+C compiler id: GNU
+CXX compiler id: GNU
+C compiler: /usr/bin/cc
+CXX compiler: /usr/bin/c++
+Build type: RelWithAsserts
+C flags:  -fopenmp
+CXX flags:  -fopenmp -std=c++0x -Wno-deprecated
+make: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/final_repertoire'
+make -C ../compilation
+make[1]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/compilation'
+make -C /home/ubuntu/ig_repertoire_constructor -j7
+make[2]: Entering directory '/home/ubuntu/ig_repertoire_constructor'
+mkdir -p build/release
+cd build/release && cmake ../.. -DCMAKE_BUILD_TYPE=""RelWithAsserts"" -DCMAKE_INSTALL_PREFIX="/usr/local" -Wno-dev
+-- Boost version: 1.63.0
+Making Release Configuration...
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ubuntu/ig_repertoire_constructor/build/release
+make -C build/release all
+make[3]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[4]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[  4%] Built target z
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[  6%] Built target bz2
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[  6%] Built target boost_random
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 12%] Built target jemalloc
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 13%] Built target boost_system
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 13%] Built target gtest
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 14%] Built target gtest_main
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 17%] Built target boost_filesystem
+[ 17%] Built target gmock
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 19%] Built target boost_iostreams
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 20%] Built target gmock_main
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 27%] Built target yaml-cpp
+[ 27%] Built target build_info
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 28%] Built target fastq_to_fasta
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 28%] Built target test_build_info
+[ 44%] Built target metis
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 44%] Built target merged_reads_stats_calculator
+[ 48%] Built target boost_regex
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 52%] Built target boost_program_options
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 53%] Built target input
+[ 55%] Built target graph_utils
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 56%] Built target paired_read_merger
+[ 57%] Built target core
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 57%] Built target ig_component_splitter
+[ 57%] Built target simulate_barcoded
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 58%] Built target ig_swgraph_construct
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 59%] Built target ig_trie_compressor
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 60%] Built target dense_sgraph_finder_library
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 61%] Built target print_graph_decomposition_stats
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 61%] Built target analyze_intermed_clusters
+[ 61%] Built target check_graph_symmetry
+[ 62%] Built target pairwise_dist_stats
+[ 63%] Built target find_bad_cluster
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 64%] Built target simulate_tiny_dataset
+[ 65%] Built target reads_by_umi_stats
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 67%] Built target umi_graph
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 68%] Built target umi_to_fastq
+[ 69%] Built target dists_inside_clusters
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 70%] Built target report_pcr_error_rate
+[ 71%] Built target report_umi_abundance
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 72%] Built target umi_correction_stats
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 73%] Built target umi_naive
+[ 74%] Built target dense_sgraph_finder
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 76%] Built target cluster_reads
+[ 80%] Built target vdj_utils
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 81%] Built target algorithms
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 84%] Built target vj_finder_library
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 85%] Built target vj_finder
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 89%] Built target cdr_labeler_library
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 90%] Built target cdr_labeler
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[ 98%] Built target ig_simulator_library
+make[5]: Entering directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[5]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+[100%] Built target ig_simulator
+make[4]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[3]: Leaving directory '/home/ubuntu/ig_repertoire_constructor/build/release'
+make[2]: Leaving directory '/home/ubuntu/ig_repertoire_constructor'
+make[1]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/compilation'
+make -C ../ig_consensus_finder
+make[1]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/ig_consensus_finder'
+make -C ../dense_subgraph_finder
+make[2]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/dense_subgraph_finder'
+make -C ../ig_graph_constructor
+make[3]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/ig_graph_constructor'
+make -C ../intermediate_ig_trie_compressor
+make[4]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/intermediate_ig_trie_compressor'
+make -C ../umi_clustering
+make[5]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/umi_clustering'
+make -C ../vj_finder
+make[6]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder'
+make -C ../merged_reads
+make[7]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/merged_reads'
+make merged_reads.fastq
+make[8]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/merged_reads'
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/paired_read_merger \
+/mnt/data/krista/rawdata/IgSeqBX1_S1_R1_001_first100k.fastq \
+/mnt/data/krista/rawdata/IgSeqBX1_S1_R2_001_first100k.fastq \
+merged_reads.fastq
+   0:00:00.302  164M /  324M   INFO  General                 (main.cpp                  :  53)   100000 paired reads were read from /mnt/data/krista/rawdata/IgSeqBX1_S1_R1_001_first100k.fastq and /mnt/data/krista/rawdata/IgSeqBX1_S1_R2_001_first100k.fastq
+   0:00:00.371  320M /  324M   INFO  General                 (reads_merger.hpp          :  21)   Min overlap size: 50
+   0:00:00.371  320M /  324M   INFO  General                 (reads_merger.hpp          :  22)   Max mismatch rate: 0.1
+   0:00:01.086  320M /  324M   INFO  General                 (reads_merger.hpp          : 136)   10% reads were processed
+   0:00:01.807  320M /  324M   INFO  General                 (reads_merger.hpp          : 136)   20% reads were processed
+   0:00:02.530  324M /  324M   INFO  General                 (reads_merger.hpp          : 136)   30% reads were processed
+   0:00:03.257  328M /  328M   INFO  General                 (reads_merger.hpp          : 136)   40% reads were processed
+   0:00:03.987  332M /  332M   INFO  General                 (reads_merger.hpp          : 136)   50% reads were processed
+   0:00:04.720  344M /  344M   INFO  General                 (reads_merger.hpp          : 136)   60% reads were processed
+   0:00:05.452  352M /  352M   INFO  General                 (reads_merger.hpp          : 136)   70% reads were processed
+   0:00:06.186  364M /  364M   INFO  General                 (reads_merger.hpp          : 136)   80% reads were processed
+   0:00:06.920  368M /  368M   INFO  General                 (reads_merger.hpp          : 136)   90% reads were processed
+   0:00:07.652  376M /  376M   INFO  General                 (reads_merger.hpp          : 140)   100% reads were processed
+   0:00:07.674  220M /  376M   INFO  General                 (main.cpp                  :  55)   48188 read from 100000 were successfully merged
+   0:00:07.980  220M /  376M   INFO  General                 (main.cpp                  :  57)   Merged reads were written to merged_reads.fastq
+make[8]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/merged_reads'
+make[7]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/merged_reads'
+make cleaned_reads.fa
+make[7]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder'
+cd /home/ubuntu/ig_repertoire_constructor; \
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/vj_finder \
+--input-file /home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder/../merged_reads/merged_reads.fastq \
+--output-dir /home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder/ \
+--db-directory /home/ubuntu/ig_repertoire_constructor/data/germline \
+--threads 16 \
+--loci IGH \
+--organism human
+/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder/
+   0:00:00.000    4M /    4M   INFO VJFinderLaunch           (vjf_launch.cpp            :  21)   == VJ Finder starts ==
+   0:00:00.287   96M /  108M   INFO  General                 (read_archive.cpp          :  35)   48188 reads were extracted from /home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder/../merged_reads/merged_reads.fastq
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 123)   34 germline filenames were extracted from ./configs/vj_finder/germline_files_config.txt
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 176)   1 V gene segment files will be used for DB:
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 178)   IGH: /home/ubuntu/ig_repertoire_constructor/data/germline/human/IG/IGHV-allP.fa
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 180)   1 D gene segment files will be used for DB:
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 182)   IGH: /home/ubuntu/ig_repertoire_constructor/data/germline/human/IG/IGHD-allP.fa
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 184)   1 J gene segment files will be used for DB:
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 186)   IGH: /home/ubuntu/ig_repertoire_constructor/data/germline/human/IG/IGHJ-allP.fa
+   0:00:00.297   52M /  108M   INFO VJFinderLaunch           (vjf_launch.cpp            :  27)   Generation of DB for variable segments...
+   0:00:00.429   52M /  108M   INFO  General                 (immune_gene_database.cpp  :  41)   476 records were extracted from /home/ubuntu/ig_repertoire_constructor/data/germline/human/IG/IGHV-allP.fa
+   0:00:00.430   52M /  108M   INFO VJFinderLaunch           (vjf_launch.cpp            :  29)   Generation of DB for join segments...
+   0:00:00.430   52M /  108M   INFO  General                 (immune_gene_database.cpp  :  41)   17 records were extracted from /home/ubuntu/ig_repertoire_constructor/data/germline/human/IG/IGHJ-allP.fa
+   0:00:00.431   56M /  108M   INFO VJFinderLaunch           (vjf_launch.cpp            :  33)   Alignment against VJ germline segments starts
+   0:02:06.957  196M /  196M   INFO  General                 (vj_parallel_processor.cpp :  50)   100% of aligned reads have isotype IGH
+   0:02:06.957  196M /  196M   INFO VJFinderLaunch           (vjf_launch.cpp            :  36)   43316 reads were aligned; 4872 reads were filtered out
+   0:02:07.101  196M /  196M   INFO  General                 (vj_alignment_info.cpp     :  74)   Alignment info was written to /home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder/alignment_info.csv
+   0:02:07.249  196M /  196M   INFO  General                 (vj_alignment_info.cpp     :  85)   Cleaned reads were written to /home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder/cleaned_reads.fa
+   0:02:08.109  196M /  196M   INFO  General                 (vj_alignment_info.cpp     : 120)   V alignments were written to /home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder/v_alignments.fa
+   0:02:08.127  196M /  196M   INFO  General                 (vj_alignment_info.cpp     :  96)   Filtered reads were written to /home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder/filtered_reads.fa
+   0:02:08.134  196M /  196M   INFO  General                 (vj_alignment_info.cpp     : 130)   Information about filtered reads was written to /home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder/filtering_info.csv
+   0:02:08.134  196M /  196M   INFO VJFinderLaunch           (vjf_launch.cpp            :  43)   == VJ Finder ends ==
+make[7]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder'
+make[6]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder'
+make -C ../umis
+make[6]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/umis'
+make -C ../vj_finder
+make[7]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder'
+make -C ../merged_reads
+make[8]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/merged_reads'
+make merged_reads.fastq
+make[9]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/merged_reads'
+make[9]: 'merged_reads.fastq' is up to date.
+make[9]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/merged_reads'
+make[8]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/merged_reads'
+make cleaned_reads.fa
+make[8]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder'
+make[8]: 'cleaned_reads.fa' is up to date.
+make[8]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder'
+make[7]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/vj_finder'
+make cleaned_reads_umi.fastq cleaned_reads_umi_compressed.fastq cleaned_reads_umi_compressed.graph
+make[7]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/umis'
+/home/ubuntu/ig_repertoire_constructor/py/serg_tools/print_umi_graph_stats.py \
+--input ../vj_finder/cleaned_reads.fa \
+--output stats \
+--tmp . \
+--tau 1 \
+--umi-cleavage-length 0 \
+--clean
+Running /home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq -i ../vj_finder/cleaned_reads.fa -o ./cleaned_reads_umi.fastq  -c 0
+   0:00:00.000    4M /    4M   INFO  General                 (umi_to_fastq.cpp          :  19)   Reading fastq
+   0:00:00.124    8M /   52M   INFO  General                 (umi_to_fastq.cpp          :  27)   43316 records read.
+   0:00:00.124    8M /   52M   INFO  General                 (umi_to_fastq.cpp          :  29)   Extracting barcodes.
+=== Stack Trace ===
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(_Z16print_stacktracev+0x7c) [0x43fa5c]
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(_Z30extract_barcodes_from_read_idsRKSt6vectorIN5seqan6StringIcNS0_5AllocIvEEEESaIS4_EERS_INS1_INS0_10SimpleTypeIhNS0_5Dna5_EEES3_EESaISC_EERS_INS1_INS9_IhNS0_5DnaQ_EEES3_EESaISI_EE+0x143d) [0x43edcd]
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(main+0x23e) [0x41ee0e]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0) [0x7f67667e3830]
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(_start+0x29) [0x4202c9]
+Verification of expression 'split_by_umi.size() > 1' failed in function 'void extract_barcodes_from_read_ids(const std::vector<seqan::String<char, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::Dna5_>, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::DnaQ_>, seqan::Alloc<> > >&)'. In file '/home/ubuntu/ig_repertoire_constructor/src/umi_experiments/umi_utils.cpp' on line 20. Message 'Could not find both 'UMI' and 'BARCODE' in read id '4345_merged_read_M05295:78:000000000-BJNBT:1:1102:14716:2237_1:N:0:ATCACG''.
+Verification of expression 'split_by_umi.size() > 1' failed in function 'void extract_barcodes_from_read_ids(const std::vector<seqan::String<char, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::Dna5_>, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::DnaQ_>, seqan::Alloc<> > >&)'. In file '/home/ubuntu/ig_repertoire_constructor/src/umi_experiments/umi_utils.cpp' on line 20. Message 'Could not find both 'UMI' and 'BARCODE' in read id '4345_merged_read_M05295:78:000000000-BJNBT:1:1102:14716:2237_1:N:0:ATCACG''.
+Aborted (core dumped)
+/home/ubuntu/ig_repertoire_constructor/py/serg_tools/print_umi_graph_stats.py \
+--input ../vj_finder/cleaned_reads.fa \
+--output stats \
+--tmp . \
+--tau 1 \
+--umi-cleavage-length 0 \
+--clean
+Running /home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq -i ../vj_finder/cleaned_reads.fa -o ./cleaned_reads_umi.fastq  -c 0
+   0:00:00.000    4M /    4M   INFO  General                 (umi_to_fastq.cpp          :  19)   Reading fastq
+   0:00:00.124    8M /   52M   INFO  General                 (umi_to_fastq.cpp          :  27)   43316 records read.
+   0:00:00.124    8M /   52M   INFO  General                 (umi_to_fastq.cpp          :  29)   Extracting barcodes.
+=== Stack Trace ===
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(_Z16print_stacktracev+0x7c) [0x43fa5c]
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(_Z30extract_barcodes_from_read_idsRKSt6vectorIN5seqan6StringIcNS0_5AllocIvEEEESaIS4_EERS_INS1_INS0_10SimpleTypeIhNS0_5Dna5_EEES3_EESaISC_EERS_INS1_INS9_IhNS0_5DnaQ_EEES3_EESaISI_EE+0x143d) [0x43edcd]
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(main+0x23e) [0x41ee0e]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0) [0x7ff1f8e79830]
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(_start+0x29) [0x4202c9]
+Verification of expression 'split_by_umi.size() > 1' failed in function 'void extract_barcodes_from_read_ids(const std::vector<seqan::String<char, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::Dna5_>, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::DnaQ_>, seqan::Alloc<> > >&)'. In file '/home/ubuntu/ig_repertoire_constructor/src/umi_experiments/umi_utils.cpp' on line 20. Message 'Could not find both 'UMI' and 'BARCODE' in read id '4345_merged_read_M05295:78:000000000-BJNBT:1:1102:14716:2237_1:N:0:ATCACG''.
+Verification of expression 'split_by_umi.size() > 1' failed in function 'void extract_barcodes_from_read_ids(const std::vector<seqan::String<char, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::Dna5_>, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::DnaQ_>, seqan::Alloc<> > >&)'. In file '/home/ubuntu/ig_repertoire_constructor/src/umi_experiments/umi_utils.cpp' on line 20. Message 'Could not find both 'UMI' and 'BARCODE' in read id '4345_merged_read_M05295:78:000000000-BJNBT:1:1102:14716:2237_1:N:0:ATCACG''.
+Aborted (core dumped)
+/home/ubuntu/ig_repertoire_constructor/py/serg_tools/print_umi_graph_stats.py \
+--input ../vj_finder/cleaned_reads.fa \
+--output stats \
+--tmp . \
+--tau 1 \
+--umi-cleavage-length 0 \
+--clean
+Running /home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq -i ../vj_finder/cleaned_reads.fa -o ./cleaned_reads_umi.fastq  -c 0
+   0:00:00.000    4M /    4M   INFO  General                 (umi_to_fastq.cpp          :  19)   Reading fastq
+   0:00:00.125    8M /   52M   INFO  General                 (umi_to_fastq.cpp          :  27)   43316 records read.
+   0:00:00.125    8M /   52M   INFO  General                 (umi_to_fastq.cpp          :  29)   Extracting barcodes.
+=== Stack Trace ===
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(_Z16print_stacktracev+0x7c) [0x43fa5c]
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(_Z30extract_barcodes_from_read_idsRKSt6vectorIN5seqan6StringIcNS0_5AllocIvEEEESaIS4_EERS_INS1_INS0_10SimpleTypeIhNS0_5Dna5_EEES3_EESaISC_EERS_INS1_INS9_IhNS0_5DnaQ_EEES3_EESaISI_EE+0x143d) [0x43edcd]
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(main+0x23e) [0x41ee0e]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0) [0x7f9a57fee830]
+/home/ubuntu/ig_repertoire_constructor/build/release/bin/umi_to_fastq(_start+0x29) [0x4202c9]
+Verification of expression 'split_by_umi.size() > 1' failed in function 'void extract_barcodes_from_read_ids(const std::vector<seqan::String<char, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::Dna5_>, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::DnaQ_>, seqan::Alloc<> > >&)'. In file '/home/ubuntu/ig_repertoire_constructor/src/umi_experiments/umi_utils.cpp' on line 20. Message 'Could not find both 'UMI' and 'BARCODE' in read id '4345_merged_read_M05295:78:000000000-BJNBT:1:1102:14716:2237_1:N:0:ATCACG''.
+Verification of expression 'split_by_umi.size() > 1' failed in function 'void extract_barcodes_from_read_ids(const std::vector<seqan::String<char, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::Dna5_>, seqan::Alloc<> > >&, std::vector<seqan::String<seqan::SimpleType<unsigned char, seqan::DnaQ_>, seqan::Alloc<> > >&)'. In file '/home/ubuntu/ig_repertoire_constructor/src/umi_experiments/umi_utils.cpp' on line 20. Message 'Could not find both 'UMI' and 'BARCODE' in read id '4345_merged_read_M05295:78:000000000-BJNBT:1:1102:14716:2237_1:N:0:ATCACG''.
+Aborted (core dumped)
+make[7]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/umis'
+make[6]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/umis'
+make intermediate_repertoire.fasta
+make[6]: Entering directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/umi_clustering'
+make[6]: *** No rule to make target '../umis/cleaned_reads_umi.fastq', needed by 'intermediate_repertoire.fasta'.  Stop.
+make[6]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/umi_clustering'
+Makefile:7: recipe for target 'all' failed
+make[5]: *** [all] Error 2
+make[5]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/umi_clustering'
+Makefile:6: recipe for target 'all' failed
+make[4]: *** [all] Error 2
+make[4]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/intermediate_ig_trie_compressor'
+Makefile:6: recipe for target 'all' failed
+make[3]: *** [all] Error 2
+make[3]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/ig_graph_constructor'
+Makefile:6: recipe for target 'all' failed
+make[2]: *** [all] Error 2
+make[2]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/dense_subgraph_finder'
+Makefile:8: recipe for target 'all' failed
+make[1]: *** [all] Error 2
+make[1]: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/ig_consensus_finder'
+Makefile:7: recipe for target 'all' failed
+make: *** [all] Error 2
+make: Leaving directory '/home/ubuntu/olgabot-aws-scratch/barcoded_igrec_first100k/final_repertoire'
+
+
+== Error ==  system call for: "make -C barcoded_igrec_first100k/final_repertoire" finished abnormally, err code: 2
+
+In case you have troubles running IG Repertoire constructor, you can write to igtools_support@googlegroups.com
+Please provide us with .log files from the output directory.
