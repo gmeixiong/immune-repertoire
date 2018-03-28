@@ -15,11 +15,10 @@ remux_data = bucket.objects.filter(Prefix='remux_data/')
 fastqs = [x for x in remux_data if x.key.endswith('fastq.gz')]
 
 def is_bcell_fastq(key):
-    name = key.key
-    has_bcell_id = bcell_ids_dashes.str.startswith(name).any()
-    return is_fastq and has_bcell_id
+    basename = key.key.split('/')
+    return bcell_ids_dashes.str.startswith(basename).any()
 
-bcell_fastqs = filter(is_bcell_fastq, fastqs)
+bcell_fastqs = [x for x in fastqs if is_bcell_fastq(x)]
 
 
 ### Serial download

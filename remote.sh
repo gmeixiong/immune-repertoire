@@ -20,3 +20,17 @@ cd ~/olgabot-aws-scratch
 git checkout igrec
 cd /mnt/data
 cp ~/olgabot-aws-scratch/maca_bcell_or_children_ids.csv  .
+
+
+cd /mnt/data
+mkdir krista
+cd krista
+sudo aws s3 cp --recursive \
+  s3://czbiohub-seqbot/fastqs/180128_M05295_0078_000000000-BJNBT .
+source activate python2.7-env
+/home/ubuntu/ig_repertoire_constructor/igrec.py -1 IgSeqBX1_S1_R1_001.fastq -2 IgSeqBX1_S1_R2_001.fastq
+
+source activate python2.7-env
+/home/ubuntu/ig_repertoire_constructor/barcoded_igrec.py \
+  -1 IgSeqBX1_S1_R1_001.fastq -2 IgSeqBX1_S1_R2_001.fastq \
+  --output barcoded_igrec --loci 'all BCRs'
