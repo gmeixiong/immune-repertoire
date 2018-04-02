@@ -11,23 +11,32 @@ May need to set "locales" for Unicode because ASCII is stupid.
 
 e.g. for a ENglish, US machine:
 
-export LC_ALL=en_US.UTF-8 
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 """
+
+def maybe_make_directory(folder):
+    try:
+        os.makedirs(folder)
+    except OSError:
+        pass
 
 
 @click.command()
 @click.argument('read1')
 @click.argument('read2')
 @click.argument('output_folder')
-def cli(read1, read2, output_folder):
-    try:
-        os.makedirs(output_folder)
-    except OSError:
-        pass
+@click.option('--barcoded', is_flag=True)
+def cli(read1, read2, output_folder, barcoded):
+    maybe_make_directory(output_folder)
+
+    if barcoded:
+        igrec = '/home/ubuntu/ig_repertoire_constructor/barcoded_igrec.py'
+    else:
+        igrec = '/home/ubuntu/ig_repertoire_constructor/igrec.py'
 
     command = f'sudo /home/ubuntu/anaconda/envs/python2.7-env/bin/python2.7 ' \
-              f'/home/ubuntu/ig_repertoire_constructor/barcoded_igrec.py ' \
+              f'{igrec} ' \
               f'-1 {read1} ' \
               f'-2 {read2} ' \
               f'--output {output_folder} --loci IGH '
