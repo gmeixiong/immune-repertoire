@@ -59,3 +59,8 @@ source activate python2.7-env
 /home/ubuntu/ig_repertoire_constructor/barcoded_igrec.py \
   -1 $DATA_DIR/IgSeqBX1_S1_R1_001.fastq -2 $DATA_DIR/IgSeqBX1_S1_R2_001.fastq \
   --output barcoded_igrec --loci 'all BCRs'
+
+
+## Run non-barcoded igrec
+~/ig_repertoire_constructor/run_igrec.py $DATA_DIR/IgSeqBX1_S1_R1_001_first100k.fastq \
+    $DATA_DIR/IgSeqBX1_S1_R2_001_first100k.fastq barcoded_igrec_first1M
