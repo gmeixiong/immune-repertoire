@@ -62,5 +62,12 @@ source activate python2.7-env
 
 
 ## Run non-barcoded igrec
-~/ig_repertoire_constructor/run_igrec.py $DATA_DIR/IgSeqBX1_S1_R1_001_first100k.fastq \
-    $DATA_DIR/IgSeqBX1_S1_R2_001_first100k.fastq barcoded_igrec_first1M
+source activate python2.7-env
+python ./run_igrec.py $DATA_DIR/IgSeqBX1_S1_R1_001_first100k.fastq \
+    $DATA_DIR/IgSeqBX1_S1_R2_001_first100k.fastq nonbarcoded_igrec_first1M
+
+
+
+## Run ChangeO and Alakazam through Immcantation docker image
+sudo apt install --yes docker.io
+docker pull kleinstein/immcantation:1.7.0
