@@ -1,0 +1,257 @@
+Log will be written to nonbarcoded_igrec_first1M/igrec.log
+
+IgReC parameters:
+  Input reads:			nonbarcoded_igrec_first1M/merged_reads.fastq
+  Output directory:		nonbarcoded_igrec_first1M
+  Number of threads:		16
+  Maximal number of mismatches:	4
+  Entry point:			pair_reads_merger
+
+Command line: /home/ubuntu/ig_repertoire_constructor/igrec.py -1 /mnt/data/krista/rawdata/IgSeqBX1_S1_R1_001_first100k.fastq -2 /mnt/data/krista/rawdata/IgSeqBX1_S1_R2_001_first100k.fastq --output nonbarcoded_igrec_first1M --loci IGH
+
+==== Pair reads merging starts
+
+   0:00:00.299  164M /  324M   INFO  General                 (main.cpp                  :  53)   100000 paired reads were read from /mnt/data/krista/rawdata/IgSeqBX1_S1_R1_001_first100k.fastq and /mnt/data/krista/rawdata/IgSeqBX1_S1_R2_001_first100k.fastq
+   0:00:00.369  320M /  324M   INFO  General                 (reads_merger.hpp          :  21)   Min overlap size: 50
+   0:00:00.369  320M /  324M   INFO  General                 (reads_merger.hpp          :  22)   Max mismatch rate: 0.1
+   0:00:01.085  320M /  324M   INFO  General                 (reads_merger.hpp          : 136)   10% reads were processed
+   0:00:01.805  320M /  324M   INFO  General                 (reads_merger.hpp          : 136)   20% reads were processed
+   0:00:02.527  324M /  324M   INFO  General                 (reads_merger.hpp          : 136)   30% reads were processed
+   0:00:03.253  328M /  328M   INFO  General                 (reads_merger.hpp          : 136)   40% reads were processed
+   0:00:03.982  332M /  332M   INFO  General                 (reads_merger.hpp          : 136)   50% reads were processed
+   0:00:04.714  344M /  344M   INFO  General                 (reads_merger.hpp          : 136)   60% reads were processed
+   0:00:05.447  352M /  352M   INFO  General                 (reads_merger.hpp          : 136)   70% reads were processed
+   0:00:06.180  364M /  364M   INFO  General                 (reads_merger.hpp          : 136)   80% reads were processed
+   0:00:06.912  368M /  368M   INFO  General                 (reads_merger.hpp          : 136)   90% reads were processed
+   0:00:07.644  376M /  376M   INFO  General                 (reads_merger.hpp          : 140)   100% reads were processed
+   0:00:07.666  220M /  376M   INFO  General                 (main.cpp                  :  55)   48188 read from 100000 were successfully merged
+   0:00:07.975  220M /  376M   INFO  General                 (main.cpp                  :  57)   Merged reads were written to nonbarcoded_igrec_first1M/merged_reads.fastq
+
+Output files: 
+  * Merged reads were written to nonbarcoded_igrec_first1M/merged_reads.fastq
+
+==== Pair reads merging finished
+
+============================================
+
+==== VJ Alignment starts
+
+/home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/vj_finder
+   0:00:00.000    4M /    4M   INFO VJFinderLaunch           (vjf_launch.cpp            :  21)   == VJ Finder starts ==
+   0:00:00.287   96M /  108M   INFO  General                 (read_archive.cpp          :  35)   48188 reads were extracted from /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/merged_reads.fastq
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 123)   34 germline filenames were extracted from ./configs/vj_finder/germline_files_config.txt
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 176)   1 V gene segment files will be used for DB:
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 178)   IGH: /home/ubuntu/ig_repertoire_constructor/data/germline/human/IG/IGHV-allP.fa
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 180)   1 D gene segment files will be used for DB:
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 182)   IGH: /home/ubuntu/ig_repertoire_constructor/data/germline/human/IG/IGHD-allP.fa
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 184)   1 J gene segment files will be used for DB:
+   0:00:00.297   52M /  108M   INFO  General                 (germline_db_generator.cpp : 186)   IGH: /home/ubuntu/ig_repertoire_constructor/data/germline/human/IG/IGHJ-allP.fa
+   0:00:00.297   52M /  108M   INFO VJFinderLaunch           (vjf_launch.cpp            :  27)   Generation of DB for variable segments...
+   0:00:00.342   52M /  108M   INFO  General                 (immune_gene_database.cpp  :  41)   476 records were extracted from /home/ubuntu/ig_repertoire_constructor/data/germline/human/IG/IGHV-allP.fa
+   0:00:00.343   52M /  108M   INFO VJFinderLaunch           (vjf_launch.cpp            :  29)   Generation of DB for join segments...
+   0:00:00.343   52M /  108M   INFO  General                 (immune_gene_database.cpp  :  41)   17 records were extracted from /home/ubuntu/ig_repertoire_constructor/data/germline/human/IG/IGHJ-allP.fa
+   0:00:00.344   56M /  108M   INFO VJFinderLaunch           (vjf_launch.cpp            :  33)   Alignment against VJ germline segments starts
+   0:02:09.284  196M /  196M   INFO  General                 (vj_parallel_processor.cpp :  50)   100% of aligned reads have isotype IGH
+   0:02:09.284  196M /  196M   INFO VJFinderLaunch           (vjf_launch.cpp            :  36)   43316 reads were aligned; 4872 reads were filtered out
+   0:02:09.428  196M /  196M   INFO  General                 (vj_alignment_info.cpp     :  74)   Alignment info was written to /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/vj_finder/alignment_info.csv
+   0:02:09.578  196M /  196M   INFO  General                 (vj_alignment_info.cpp     :  85)   Cleaned reads were written to /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/vj_finder/cleaned_reads.fa
+   0:02:10.437  196M /  196M   INFO  General                 (vj_alignment_info.cpp     : 120)   V alignments were written to /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/vj_finder/v_alignments.fa
+   0:02:10.455  196M /  196M   INFO  General                 (vj_alignment_info.cpp     :  96)   Filtered reads were written to /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/vj_finder/filtered_reads.fa
+   0:02:10.462  196M /  196M   INFO  General                 (vj_alignment_info.cpp     : 130)   Information about filtered reads was written to /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/vj_finder/filtering_info.csv
+   0:02:10.462  196M /  196M   INFO VJFinderLaunch           (vjf_launch.cpp            :  43)   == VJ Finder ends ==
+
+Output files: 
+  * Cleaned Ig-Seq reads were written to nonbarcoded_igrec_first1M/vj_finder/cleaned_reads.fa
+  * Contaminated (not Ig-Seq) reads were written to nonbarcoded_igrec_first1M/vj_finder/filtered_reads.fa
+  * VJ alignment output was written to nonbarcoded_igrec_first1M/vj_finder/alignment_info.csv
+
+==== VJ Alignment finished
+
+============================================
+
+==== Trie Compressor starts
+
+   0:00:00.000    4M /    4M   INFO  General                 (ig_trie_compressor.cpp    : 126)   Command line: /home/ubuntu/ig_repertoire_constructor/build/release/bin/./ig_trie_compressor -i nonbarcoded_igrec_first1M/vj_finder/cleaned_reads.fa -o nonbarcoded_igrec_first1M/compressed_reads.fa -m nonbarcoded_igrec_first1M/cleaned_compressed_map.txt -Toff
+   0:00:00.001    4M /    4M   INFO  General                 (ig_trie_compressor.cpp    : 127)   Input reads: nonbarcoded_igrec_first1M/vj_finder/cleaned_reads.fa
+   0:00:00.001    4M /    4M   INFO  General                 (ig_trie_compressor.cpp    : 128)   Output filename: nonbarcoded_igrec_first1M/compressed_reads.fa
+   0:00:00.001    4M /    4M   INFO  General                 (ig_trie_compressor.cpp    : 135)   Reading input reads starts
+   0:00:00.120   36M /   48M   INFO  General                 (ig_trie_compressor.cpp    : 137)   43316 reads were extracted from nonbarcoded_igrec_first1M/vj_finder/cleaned_reads.fa
+   0:00:00.121   36M /   48M   INFO  General                 (ig_trie_compressor.cpp    : 139)   Compression of reads starts
+   0:00:00.194   40M /   56M   INFO  General                 (ig_trie_compressor.cpp    : 142)   Compression of reads finished
+   0:00:00.243   36M /   56M   INFO  General                 (ig_trie_compressor.cpp    : 166)   42795 compressed reads were written to nonbarcoded_igrec_first1M/compressed_reads.fa
+   0:00:00.246   36M /   56M   INFO  General                 (ig_trie_compressor.cpp    : 175)   Map from input reads to compressed reads was written to nonbarcoded_igrec_first1M/cleaned_compressed_map.txt
+   0:00:00.246   36M /   56M   INFO  General                 (ig_trie_compressor.cpp    : 177)   Running time: 0 hours 0 minutes 0 seconds
+Construct repertoire from TrieCompressor output...
+Command line: /home/ubuntu/ig_repertoire_constructor/py/ig_triecmp_to_repertoire.py -i nonbarcoded_igrec_first1M/vj_finder/cleaned_reads.fa -c nonbarcoded_igrec_first1M/compressed_reads.fa -m nonbarcoded_igrec_first1M/cleaned_compressed_map.txt -r nonbarcoded_igrec_first1M/supernode_repertoire.fa -R nonbarcoded_igrec_first1M/supernode_repertoire.rcm
+Done
+Supernode reporter started...
+Command line: /home/ubuntu/ig_repertoire_constructor/py/ig_report_supernodes.py nonbarcoded_igrec_first1M/supernode_repertoire.fa nonbarcoded_igrec_first1M/super_reads.fa --limit=5
+14 antibody clusters have abundance >= 5
+42781 lowly abundant antibody clusters will be discarded
+Highly abundant clusters were written to nonbarcoded_igrec_first1M/super_reads.fa
+Supernode reporter done
+
+Output files:
+  * Compressed reads were written to nonbarcoded_igrec_first1M/compressed_reads.fa
+  * Super reads were written to nonbarcoded_igrec_first1M/super_reads.fa
+
+==== Trie Compressor finished
+
+============================================
+
+==== Graph Constructor starts
+
+   0:00:00.000    4M /    4M   INFO  General                 (ig_swgraph_construct.cpp  : 166)   Command line: /home/ubuntu/ig_repertoire_constructor/build/release/bin/./ig_swgraph_construct -i nonbarcoded_igrec_first1M/compressed_reads.fa -o nonbarcoded_igrec_first1M/sw.graph -t 16 --tau=4 -A -Toff
+   0:00:00.000    4M /    4M   INFO  General                 (ig_swgraph_construct.cpp  : 167)   Input reads: nonbarcoded_igrec_first1M/compressed_reads.fa
+   0:00:00.000    4M /    4M   INFO  General                 (ig_swgraph_construct.cpp  : 168)   k = 10, tau = 4
+   0:00:00.000    4M /    4M   INFO  General                 (ig_swgraph_construct.cpp  : 174)   Reading input reads starts
+   0:00:00.122   36M /   52M   INFO  General                 (ig_swgraph_construct.cpp  : 176)   42795 reads were extracted from nonbarcoded_igrec_first1M/compressed_reads.fa
+   0:00:00.122   36M /   52M   INFO  General                 (ig_swgraph_construct.cpp  : 178)   Read length checking
+   0:00:00.122   36M /   52M   INFO  General                 (ig_swgraph_construct.cpp  : 214)   Truncated distance graph construction using 16 threads starts
+   0:00:00.122   36M /   52M   INFO  General                 (ig_swgraph_construct.cpp  : 215)   Construction of candidates graph
+   0:00:00.122   36M /   52M   INFO  General                 (ig_swgraph_construct.cpp  : 217)   Strategy 3 was chosen
+   0:00:00.122   36M /   52M   INFO  General                 (ig_swgraph_construct.cpp  : 226)   K-mer index construction
+   0:00:02.496  304M /  304M   INFO  General                 (ig_swgraph_construct.cpp  : 238)   Simularity computations: 8977717, average 209.784 per read
+   0:00:02.497  304M /  304M   INFO  General                 (ig_swgraph_construct.cpp  : 241)   Edges found: 3165
+   0:00:02.497  304M /  304M   INFO  General                 (ig_swgraph_construct.cpp  : 242)   Strategy efficiency: 0.00035254
+   0:00:02.497  304M /  304M   INFO  General                 (ig_swgraph_construct.cpp  : 246)   Saving graph (with abundances)
+   0:00:02.608  112M /  304M   INFO  General                 (ig_swgraph_construct.cpp  : 292)   Graph was written to nonbarcoded_igrec_first1M/sw.graph
+   0:00:02.608  112M /  304M   INFO  General                 (ig_swgraph_construct.cpp  : 294)   Running time: 0 hours 0 minutes 2 seconds
+
+Output files:
+  * Smith-Waterman graph was written to nonbarcoded_igrec_first1M/sw.graph
+
+==== Graph Constructor finished
+
+============================================
+
+==== Dense Subgraph Finder starts
+
+Preparing output dir
+Cleaning up
+Command_line: dense_subgraph_finder.py -g nonbarcoded_igrec_first1M/sw.graph -o nonbarcoded_igrec_first1M/dense_sgraph_finder -t 16 -n 5 -f 0.6
+
+DSF parameters:
+  Input graph:					/home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/sw.graph
+  Output directory:				/home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/dense_sgraph_finder
+  Number of threads:				16
+  Minimum size of processed graphs:		5
+  Minimum edge fill-in of dense subgraph:	0.6
+  Output auxiliary files:			None
+
+
+Log will be written to /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/dense_sgraph_finder/dense_subgraph_finder.log
+
+   0:00:00.000    4M /    4M   INFO  General                 (launch.cpp                : 155)   ==== Dense subgraph finder starts
+   0:00:00.103    4M /    8M   INFO  General                 (launch.cpp                : 162)   DSF algorithm parameters:
+   0:00:00.103    4M /    8M   INFO  General                 (launch.cpp                : 163)   Minimum size of processed components: 5
+   0:00:00.103    4M /    8M   INFO  General                 (launch.cpp                : 165)   Minimum weight of vertex that prevents its gluing with other heavy vertices: 5
+   0:00:00.103    4M /    8M   INFO  General                 (launch.cpp                : 166)   Expected minimum edge fill-in: 0.6
+   0:00:00.103    4M /    8M   INFO  General                 (launch.cpp                : 173)   Parallel mode was chosen. Number of threads: 16
+   0:00:00.164   44M /   44M   INFO  General                 (launch.cpp                : 102)   Largest component contains 38 vertices & 302 edges
+   0:00:00.164   44M /   44M   INFO  General                 (launch.cpp                : 106)   # singleton components: 39769 (97.1089%)
+   0:00:00.164   44M /   44M   INFO  General                 (launch.cpp                : 111)   # small components (# vertices < 5): 40876 (99.812%)
+   0:00:00.828  104M /  104M   INFO  General                 (launch.cpp                : 143)   Parallel construction of dense subgraphs for connected components finished
+   0:00:00.828  104M /  104M   INFO  General                 (launch.cpp                : 145)   Connected components in GRAPH format were written to /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/dense_sgraph_finder/connected_components
+   0:00:00.829  104M /  104M   INFO  General                 (launch.cpp                : 147)   Dense subgraph decompositions for connected components were written to /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/dense_sgraph_finder/dense_subgraphs
+   0:00:00.906   80M /  112M   INFO  General                 (launch.cpp                : 177)   41020 dense subgraphs were constructed
+   0:00:00.907   80M /  112M   INFO DecompositionStatsCalcul (decomposition_stats_calcul:  74)   Decomposition contains 41020 classes
+   0:00:00.907   80M /  112M   INFO DecompositionStatsCalcul (decomposition_stats_calcul:  78)   # trivial classes: 39816 (97.0648%)
+   0:00:00.908   80M /  112M   INFO DecompositionStatsCalcul (decomposition_stats_calcul:  79)   Size of maximal class: 25
+   0:00:00.908   80M /  112M   INFO DecompositionStatsCalcul (decomposition_stats_calcul:  80)   Edge fillin of maximal class: 0.9
+   0:00:00.908   80M /  112M   INFO DecompositionStatsCalcul (decomposition_stats_calcul:  81)   Maximal edge fillin: 1
+   0:00:00.908   80M /  112M   INFO DecompositionStatsCalcul (decomposition_stats_calcul:  82)   Average edge fillin: 0.976288
+   0:00:00.964   80M /  112M   INFO  General                 (launch.cpp                : 180)   Dense subgraph decomposition was written to /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/dense_sgraph_finder/dense_subgraphs.txt
+   0:00:00.964   80M /  112M   INFO  General                 (launch.cpp                : 181)   ==== Dense subgraph finder ends
+   0:00:00.980   64M /  112M   INFO  General                 (main.cpp                  :  94)   Running time: 0 hours 0 minutes 0 seconds
+Cleaning up
+Removing /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/dense_sgraph_finder/metis.output
+Removing /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/dense_sgraph_finder/connected_components
+Removing /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/dense_sgraph_finder/dense_subgraphs
+
+Thank you for using Dense Subgraph Finder!
+
+Log was written to /home/ubuntu/olgabot-aws-scratch/nonbarcoded_igrec_first1M/dense_sgraph_finder/dense_subgraph_finder.log
+
+Output files:
+  * Dense subgraph decomposition was written to nonbarcoded_igrec_first1M/dense_sgraph_finder/dense_subgraphs.txt
+
+==== Dense Subgraph Finder finished
+
+============================================
+
+==== Consensus Constructor starts
+
+   0:00:00.000    4M /    4M   INFO  General                 (ig_component_splitter.cpp : 228)   Command line: /home/ubuntu/ig_repertoire_constructor/build/release/bin/./ig_component_splitter -i nonbarcoded_igrec_first1M/vj_finder/cleaned_reads.fa -R nonbarcoded_igrec_first1M/final_repertoire_uncompressed.rcm -M nonbarcoded_igrec_first1M/final_repertoire_uncompressed.rcm -o nonbarcoded_igrec_first1M/final_repertoire_uncompressed.fa -t 16 -D True --max-votes 10005000
+   0:00:00.000    4M /    4M   INFO  General                 (ig_component_splitter.cpp : 344)   Command line: /home/ubuntu/ig_repertoire_constructor/build/release/bin/./ig_component_splitter -i nonbarcoded_igrec_first1M/vj_finder/cleaned_reads.fa -R nonbarcoded_igrec_first1M/final_repertoire_uncompressed.rcm -M nonbarcoded_igrec_first1M/final_repertoire_uncompressed.rcm -o nonbarcoded_igrec_first1M/final_repertoire_uncompressed.fa -t 16 -D True --max-votes 10005000
+   0:00:00.000    4M /    4M   INFO  General                 (ig_component_splitter.cpp : 345)   Input files: nonbarcoded_igrec_first1M/vj_finder/cleaned_reads.fa, nonbarcoded_igrec_first1M/final_repertoire_uncompressed.rcm
+   0:00:00.000    4M /    4M   INFO  General                 (ig_component_splitter.cpp : 351)   Reading input reads starts
+   0:00:00.120   36M /   48M   INFO  General                 (ig_component_splitter.cpp : 353)   43316 reads were extracted from nonbarcoded_igrec_first1M/vj_finder/cleaned_reads.fa
+   0:00:00.120   36M /   48M   INFO  General                 (ig_component_splitter.cpp : 358)   Reading read-cluster map starts
+   0:00:00.208   48M /   48M   INFO  General                 (ig_component_splitter.cpp : 375)   43316 over 43316 reads assigned
+   0:00:00.208   48M /   48M   INFO  General                 (ig_component_splitter.cpp : 383)   41020 clusters were extracted from nonbarcoded_igrec_first1M/final_repertoire_uncompressed.rcm
+   0:00:00.209   48M /   48M   INFO  General                 (ig_component_splitter.cpp : 389)   Size of maximal cluster: 34
+   0:00:00.209   48M /   48M   INFO  General                 (ig_component_splitter.cpp : 392)   Computation of consensus using 16 threads starts
+   0:00:00.209   48M /   48M   INFO  General                 (ig_component_splitter.cpp : 393)   Saving results
+   0:00:00.446   52M /   52M   INFO  General                 (ig_component_splitter.cpp : 427)   Final repertoire was written to nonbarcoded_igrec_first1M/final_repertoire_uncompressed.fa
+   0:00:00.446   52M /   52M   INFO  General                 (ig_component_splitter.cpp : 428)   Final RCM was written to nonbarcoded_igrec_first1M/final_repertoire_uncompressed.rcm
+   0:00:00.446   52M /   52M   INFO  General                 (ig_component_splitter.cpp : 430)   Running time: 0 hours 0 minutes 0 seconds
+
+Output files:
+  * Antibody clusters of uncompressed final repertoire were written to nonbarcoded_igrec_first1M/final_repertoire_uncompressed.fa
+  * Read-cluster map of uncompressed final repertoire was written to nonbarcoded_igrec_first1M/final_repertoire_uncompressed.rcm
+
+==== Consensus Constructor finished
+
+============================================
+
+==== Compress Equal Final Clusters starts
+
+   0:00:00.000    4M /    4M   INFO  General                 (ig_trie_compressor.cpp    : 126)   Command line: /home/ubuntu/ig_repertoire_constructor/py/../build/release/bin/./ig_trie_compressor -i nonbarcoded_igrec_first1M/final_repertoire_uncompressed.fa -o nonbarcoded_igrec_first1M/tmp_compressed_clusters.fa -m nonbarcoded_igrec_first1M/tmp_compressed_clusters.map
+   0:00:00.000    4M /    4M   INFO  General                 (ig_trie_compressor.cpp    : 127)   Input reads: nonbarcoded_igrec_first1M/final_repertoire_uncompressed.fa
+   0:00:00.000    4M /    4M   INFO  General                 (ig_trie_compressor.cpp    : 128)   Output filename: nonbarcoded_igrec_first1M/tmp_compressed_clusters.fa
+   0:00:00.000    4M /    4M   INFO  General                 (ig_trie_compressor.cpp    : 135)   Reading input reads starts
+   0:00:00.113   32M /   48M   INFO  General                 (ig_trie_compressor.cpp    : 137)   41020 reads were extracted from nonbarcoded_igrec_first1M/final_repertoire_uncompressed.fa
+   0:00:00.113   32M /   48M   INFO  General                 (ig_trie_compressor.cpp    : 139)   Compression of reads starts
+   0:00:00.643   32M /  440M   INFO  General                 (ig_trie_compressor.cpp    : 142)   Compression of reads finished
+   0:00:00.681   32M /  440M   INFO  General                 (ig_trie_compressor.cpp    : 166)   41019 compressed reads were written to nonbarcoded_igrec_first1M/tmp_compressed_clusters.fa
+   0:00:00.684   32M /  440M   INFO  General                 (ig_trie_compressor.cpp    : 175)   Map from input reads to compressed reads was written to nonbarcoded_igrec_first1M/tmp_compressed_clusters.map
+   0:00:00.684   32M /  440M   INFO  General                 (ig_trie_compressor.cpp    : 177)   Running time: 0 hours 0 minutes 0 seconds
+Check input consistency...
+Command line: /home/ubuntu/ig_repertoire_constructor/py/ig_compress_equal_clusters.py nonbarcoded_igrec_first1M/final_repertoire_uncompressed.fa nonbarcoded_igrec_first1M/final_repertoire.fa -T nonbarcoded_igrec_first1M/tmp_compressed_clusters.fa -m nonbarcoded_igrec_first1M/tmp_compressed_clusters.map -r nonbarcoded_igrec_first1M/final_repertoire_uncompressed.rcm -R nonbarcoded_igrec_first1M/final_repertoire.rcm
+Fixing RCM file...
+Check output consistency...
+Remove temporary files: nonbarcoded_igrec_first1M/tmp_compressed_clusters.fa nonbarcoded_igrec_first1M/tmp_compressed_clusters.map
+
+Output files:
+  * Equal output clusters joined nonbarcoded_igrec_first1M/final_repertoire.fa
+
+==== Compress Equal Final Clusters finished
+
+============================================
+
+==== Low Abundant Clusters Remover starts
+
+Supernode reporter started...
+Command line: /home/ubuntu/ig_repertoire_constructor/py/ig_report_supernodes.py nonbarcoded_igrec_first1M/final_repertoire.fa nonbarcoded_igrec_first1M/final_repertoire_large.fa --limit=5
+96 antibody clusters have abundance >= 5
+40923 lowly abundant antibody clusters will be discarded
+Highly abundant clusters were written to nonbarcoded_igrec_first1M/final_repertoire_large.fa
+Supernode reporter done
+
+Output files:
+  * Highly abundant antibody clusters of final repertoire were written to nonbarcoded_igrec_first1M/final_repertoire_large.fa
+
+==== Low Abundant Clusters Remover finished
+
+IgReC output:
+  * Cleaned Ig-Seq reads were written to nonbarcoded_igrec_first1M/vj_finder/cleaned_reads.fa
+  * Contaminated (not Ig-Seq) reads were written to nonbarcoded_igrec_first1M/vj_finder/filtered_reads.fa
+  * VJ alignment output was written to nonbarcoded_igrec_first1M/vj_finder/alignment_info.csv
+  * Super reads were written to nonbarcoded_igrec_first1M/super_reads.fa
+  * Antibody clusters of final repertoire were written to nonbarcoded_igrec_first1M/final_repertoire.fa
+  * Read-cluster map of final repertoire was written to nonbarcoded_igrec_first1M/final_repertoire.rcm
+  * Highly abundant antibody clusters of final repertoire were written to nonbarcoded_igrec_first1M/final_repertoire_large.fa
+
+Thank you for using IgReC!
+Log was written to nonbarcoded_igrec_first1M/igrec.log
