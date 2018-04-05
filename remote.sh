@@ -58,7 +58,7 @@ sudo head -n 4000000 $DATA_DIR/IgSeqBX1_S1_R2_001.fastq > $DATA_DIR/IgSeqBX1_S1_
 source activate python2.7-env
 /home/ubuntu/ig_repertoire_constructor/barcoded_igrec.py \
   -1 $DATA_DIR/IgSeqBX1_S1_R1_001.fastq -2 $DATA_DIR/IgSeqBX1_S1_R2_001.fastq \
-  --output barcoded_igrec --loci 'all BCRs'
+  --output barcoded_igrec --loci IGH
 
 
 ## Run non-barcoded igrec
@@ -71,3 +71,8 @@ python ./run_igrec.py $DATA_DIR/IgSeqBX1_S1_R1_001_first100k.fastq \
 ## Run ChangeO and Alakazam through Immcantation docker image
 sudo apt install --yes docker.io
 docker pull kleinstein/immcantation:1.7.0
+
+
+## Install Jupyterlab
+conda install --yes jupyter  pandas matplotlib seaborn scikit-learn
+jupyter serverextension enable --py jupyterlab --sys-prefix
