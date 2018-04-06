@@ -22,12 +22,7 @@ def maybe_make_directory(folder):
         pass
 
 
-@click.command()
-@click.argument('read1')
-@click.argument('read2')
-@click.argument('output_folder')
-@click.option('--barcoded', is_flag=True)
-def cli(read1, read2, output_folder, barcoded):
+def run_igrec(read1, read2, output_folder, barcoded=False):
     maybe_make_directory(output_folder)
 
     if barcoded:
@@ -48,6 +43,14 @@ def cli(read1, read2, output_folder, barcoded):
     with open(stdout, 'w') as file_out:
         with open(stderr, 'w') as file_err:
             subprocess.Popen(command, stdout=file_out, stderr=file_err)
+
+@click.command()
+@click.argument('read1')
+@click.argument('read2')
+@click.argument('output_folder')
+@click.option('--barcoded', is_flag=True)
+def cli(read1, read2, output_folder, barcoded):
+    run_igrec(read1, read2, output_folder, barcoded)
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@ import os
 
 import click
 
-import run_igrec
+from run_igrec import run_igrec
 
 
 @click.command()
@@ -24,7 +24,7 @@ def cli(fastqs, output_prefix, barcoded):
         print(subfolder)
         output_folder = os.path.join(output_prefix, subfolder)
 
-        run_igrec.cli(read1, read2, output_folder, barcoded)
+        run_igrec(read1, read2, output_folder, barcoded)
 
 
 if __name__ == '__main__':
