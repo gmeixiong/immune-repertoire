@@ -37,8 +37,8 @@ def cli(read1, read2, output_folder, barcoded):
 
     command = f'sudo /home/ubuntu/anaconda/envs/python2.7-env/bin/python2.7 ' \
               f'{igrec} ' \
-              f'-1 {read1} ' \
-              f'-2 {read2} ' \
+              f'-1 $(gunzip -c {read1}) ' \
+              f'-2 $(gunzip -c {read2}) ' \
               f'--output {output_folder} --loci IGH '
     command = shlex.split(command)
 
