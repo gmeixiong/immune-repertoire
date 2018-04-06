@@ -12,7 +12,7 @@ from run_igrec import run_igrec
 def cli(output_prefix, fastqs, barcoded):
     for fastq in fastqs:
         # Only operate on R1s to avoid duplication
-        if "R2" in fastqs:
+        if "R2" in fastq:
             continue
         read1 = fastq
         print(f'read1: {read1}')
