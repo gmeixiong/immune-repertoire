@@ -6,10 +6,10 @@ from run_igrec import run_igrec
 
 
 @click.command()
-@click.argument('fastqs', nargs=-1)
 @click.argument('output_prefix')
+@click.argument('fastqs', nargs=-1)
 @click.option('--barcoded', is_flag=True)
-def cli(fastqs, output_prefix, barcoded):
+def cli(output_prefix, fastqs, barcoded):
     for fastq in fastqs:
         # Only operate on R1s to avoid duplication
         if "R2" in fastqs:
