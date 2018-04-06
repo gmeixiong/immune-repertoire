@@ -6,4 +6,6 @@ aegea launch --iam-role S3fromEC2 --ami-tags Name=czbiohub-miniconda -t m4.4xlar
 ssh -i ~/.ssh/aegea.launch.olgabot.Olgas-MacBook-Pro.pem ubuntu@ec2-34-210-67-18.us-west-2.compute.amazonaws.com
 
 
-aegea launch --iam-role S3fromEC2 --ami-tags Name=czbiohub-miniconda -t m4.4xlarge  olgabot-igrec-tabula-muris        
+## For running igrec on tabula muris fastqs
+aegea launch --iam-role S3fromEC2 --ami-tags Name=czbiohub-miniconda -t m4.4xlarge  olgabot-igrec-tabula-muris
+ssh -i ~/.ssh/aegea.launch.olgabot.Olgas-MacBook-Pro.pem ubuntu@ec2-35-166-114-251.us-west-2.compute.amazonaws.com
