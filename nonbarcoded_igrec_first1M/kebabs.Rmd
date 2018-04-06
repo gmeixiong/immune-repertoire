@@ -1,0 +1,157 @@
+---
+title: "KeBaBs on IgReC repertoire"
+author: "Olga Botvinnik"
+date: "4/6/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(here)
+library(kebabs)
+library(tidyverse)
+library(Seurat)
+library(broom)
+library(knitr)
+library(ggfortify)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+repertoire = readDNAStringSet(here('nonbarcoded_igrec_first1M', 'final_repertoire.fa'))
+length(repertoire)
+repertoire
+```
+
+
+```{r}
+hist(width(repertoire), breaks=30, xlab="Sequence Length",
+     main="Distribution of Sequence Lengths", col="lightblue")
+
+```
+
+
+
+## Get VJ assignment
+
+```{r}
+alignment_info = read_table2(here('nonbarcoded_igrec_first1M', 'vj_finder', 'alignment_info.csv'))
+head(alignment_info)
+```
+
+```{r}
+read_to_cluster = read_table2(here('nonbarcoded_igrec_first1M', 'final_repertoire.rcm'), col_names=c('Read_name', 'cluster_id'))
+head(read_to_cluster)
+```
+
+
+
+
+```{r}
+cluster_vj = dplyr::left_join(alignment_info, read_to_cluster)
+cluster_vj = cluster_vj %>% add_count(cluster_id)
+cluster_vj['cluster_name'] = paste('cluster', cluster_vj$cluster_id, 'size', cluster_vj$n, sep='___')
+dim(cluster_vj)
+head(cluster_vj)
+```
+
+```{r}
+read_metadata = cluster_vj[cluster_vj$cluster_name %in% repertoire@ranges@NAMES, ]
+dim(read_metadata)
+head(read_metadata)
+```
+
+```{r}
+colnames(read_metadata)
+```
+
+
+```{r}
+cols_to_keep = c('cluster_name', 'V_hit', 'J_hit', 'cluster_id', 'n')
+repertoire_metadata = unique(read_metadata[, cols_to_keep])
+
+# Sort by cluster id
+repertoire_metadata = arrange(repertoire_metadata, cluster_id)
+
+dim(repertoire_metadata)
+head(repertoire_metadata)
+```
+
+
+
+```{r}
+specK2 <- spectrumKernel(k=3, normalized=FALSE)
+repertoire_3mer <- getExRep(repertoire, selx=1:5, kernel=specK2, sparse=FALSE)
+head(repertoire_3mer)
+```
+
+```{r}
+pca_result = prcomp(repertoire_3mer)
+print(c("pca_result$center" ))
+print(pca_result$center)
+print(c("pca_result$scale"))
+print(pca_result$scale)
+# head(pca_result)
+```
+```{r}
+biplot(pca_result, scale = 0)
+```
+
+```{r}
+# heatmap(specK2(x=repertoire), symm=TRUE)
+```
+
+
+```{r}
+tidy_kmer_counts = function(k, m = 0) {
+  if (m == 0) {
+    kernel <- spectrumKernel(k = k, normalized = FALSE)
+  } else {
+    kernel = gappyPairKernel(k = k, m = m)
+  }
+  repertoire_kmer <-
+    getExRep(repertoire,
+             selx = 1:5,
+             kernel = kernel,
+             sparse = FALSE)
+  repertoire_kmer_tbl = as_tibble(repertoire_kmer@.Data)
+  repertoire_kmer_tbl['cluster_name'] = rownames(repertoire_kmer@.Data)
+  
+  repertoire_kmer_tidy = gather(repertoire_kmer_tbl, kmer, kmer_count,-cluster_name)
+  repertoire_kmer_tidy['k'] = k
+  repertoire_kmer_tidy['m'] = m
+  repertoire_kmer_tidy['kernel'] = paste0('k=', k, ' m=', m)
+  return(repertoire_kmer_tidy)
+}
+
+
+repertoire_kmer_tbl = tibble()
+for (k in seq(2, 4)){
+  for (m in seq(0, 2)){
+    tbl = tidy_kmer_counts(k, m)
+    repertoire_kmer_tbl = bind_rows(repertoire_kmer_tbl, tbl)
+  }
+}
+dim(repertoire_kmer_tbl)
+head(head(repertoire_kmer_tbl))
+```
+```{r}
+write_csv(repertoire_kmer_tbl, 'final_repertoire_kmers.csv')
+```
+
+
+```{r}
+repertoire_kmer_tbl %>% filter(m > 0)
+```
+
+
+```{r, fig.width=12, fig.height=4}
+ggplot(repertoire_kmer_tbl, aes(x=kmer_count, fill=kernel),) + geom_histogram() + scale_y_log10() + facet_grid(~kernel,)
+```
+
