@@ -1,5 +1,3 @@
-
-import StringIO
 import os
 
 import click
