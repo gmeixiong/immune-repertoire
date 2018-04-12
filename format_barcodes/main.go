@@ -45,15 +45,21 @@ func main() {
 	if err == io.EOF {
 	  break
 	}
-	fmt.Println(seq.CloneAnnotation().Desc)
+
+	description := seq.CloneAnnotation().Desc
+	fmt.Println()
 
 	// -1 means return all found
-	findall := pattern.FindAllStringSubmatch(seq.CloneAnnotation().Desc, -1)[0]
+	findall := pattern.FindAllStringSubmatch(description, -1)[0]
 
 	fmt.Println("findall:", findall)
 	fmt.Println("findall[0]:", findall[0])
 	fmt.Println("findall[1]:", findall[1])
 	fmt.Println("findall[2]:", findall[2])
+
+	replaced := pattern.ReplaceAllString(description, "BARCODE:" + findall[1])
+
+	fmt.Println("replaced:", replaced)
 
 	writer.Write(seq)
   }
