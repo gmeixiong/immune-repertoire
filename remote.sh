@@ -76,3 +76,15 @@ docker pull kleinstein/immcantation:1.7.0
 ## Install Jupyterlab
 conda install --yes jupyter  pandas matplotlib seaborn scikit-learn
 jupyter serverextension enable --py jupyterlab --sys-prefix
+
+
+## Convert barcode-containing fastqs to something igrec understands
+cd /mnt/data/presto/output
+tr '|' '_' < BX-R1_primers-pass_pair-pass.fastq | tr ' ' '_' |tr '=' ':' > /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq
+tr '|' '_' < BX-R2_primers-pass_pair-pass.fastq | tr ' ' '_' |tr '=' ':' > /mnt/data/fastq/BX-R2_primers-pass_underscore_separated.fastq
+
+
+python run_igrec.py --barcoded \
+    /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq \
+    /mnt/data/fastq/BX-R2_primers-pass_underscore_separated.fastq \
+    igrec_on_presto_primers_pass_underscore_separated_v2
