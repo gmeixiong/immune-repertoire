@@ -80,8 +80,8 @@ jupyter serverextension enable --py jupyterlab --sys-prefix
 
 ## Convert barcode-containing fastqs to something igrec understands
 cd /mnt/data/presto/output
-tr '|' '_' < BX-R1_primers-pass_pair-pass.fastq | tr ' ' '_' |tr '=' ':' > /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq
-tr '|' '_' < BX-R2_primers-pass_pair-pass.fastq | tr ' ' '_' |tr '=' ':' > /mnt/data/fastq/BX-R2_primers-pass_underscore_separated.fastq
+time python ~/olgabot-aws-scratch/format_barcodes.py /mnt/data/presto/output/BX-R1_primers-pass_pair-pass.fastq 1 > /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq
+time python ~/olgabot-aws-scratch/format_barcodes.py /mnt/data/presto/output/BX-R2_primers-pass_pair-pass.fastq 2 > /mnt/data/fastq/BX-R2_primers-pass_underscore_separated.fastq
 
 
 python run_igrec.py --barcoded \
