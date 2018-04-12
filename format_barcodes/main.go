@@ -8,6 +8,7 @@ import (
   "github.com/biogo/biogo/alphabet"
   "fmt"
   "regexp"
+  "strconv"
 )
 
 func main() {
@@ -24,9 +25,14 @@ func main() {
   // Create a fastq reader:
   reader := fastq.NewReader(fh, template)
 
+  // convert string argument to number
+  read_number, err := strconv.Atoi(os.Args[2])
+  if err != nil {
+	panic(err)
+  }
 
   // Open the output file for writing:
-  fho, err := os.Create(os.Args[2])
+  fho, err := os.Create(os.Args[3])
   // Close the file after we finished writing:
   defer fho.Close()
   if err != nil {
@@ -47,7 +53,7 @@ func main() {
 	}
 
 	description := seq.CloneAnnotation().Desc
-	fmt.Println()
+	fmt.Println("---", description, "---")
 
 	// -1 means return all found
 	findall := pattern.FindAllStringSubmatch(description, -1)[0]
@@ -57,7 +63,7 @@ func main() {
 	fmt.Println("findall[1]:", findall[1])
 	fmt.Println("findall[2]:", findall[2])
 
-	replaced := pattern.ReplaceAllString(description, "BARCODE:" + findall[1])
+	replaced := pattern.ReplaceAllString(description, "BARCODE:" + findall[read_number])
 
 	fmt.Println("replaced:", replaced)
 
