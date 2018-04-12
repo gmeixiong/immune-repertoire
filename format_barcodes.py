@@ -34,4 +34,5 @@ def cli(fastq, read_number):
     SeqIO.write(reformatted_records, sys.stdout, 'fastq')
 
 
-
+if __name__ == '__main__':
+    cli()
