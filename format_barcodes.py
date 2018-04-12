@@ -27,7 +27,7 @@ def timestamp():
 @click.command()
 @click.argument('fastq', type=click.File())
 @click.argument('read_number', type=click.IntRange(1, 2))
-@click.argument('--timestamp', flag=True, default=False)
+@click.argument('--timestamp', is_flag=True, default=False)
 def cli(fastq, read_number, timestamp):
     """Converts presto-barcoded fastqo to igrec-formatted"""
 
