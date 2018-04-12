@@ -88,3 +88,7 @@ python run_igrec.py --barcoded \
     /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq \
     /mnt/data/fastq/BX-R2_primers-pass_underscore_separated.fastq \
     igrec_on_presto_primers_pass_underscore_separated_v2
+
+
+## Use Go to change the fastqs
+./format_barcodes /mnt/data/presto/output/BX-R1_primers-pass_pair-pass_first3.fastq

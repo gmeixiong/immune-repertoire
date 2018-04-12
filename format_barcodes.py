@@ -27,19 +27,19 @@ def timestamp():
 @click.command()
 @click.argument('fastq', type=click.File())
 @click.argument('read_number', type=click.IntRange(1, 2))
-@click.option('--timestamp', is_flag=True)
-def cli(fastq, read_number, timestamp):
+@click.option('--time', is_flag=True)
+def cli(fastq, read_number, time):
     """Converts presto-barcoded fastqo to igrec-formatted"""
 
     # print(fastq)
-    if timestamp:
+    if time:
         click.echo(timestamp(), err=True)
     pattern = re.compile(
         'BARCODE=(?P<r1_barcode>[ACGT]+),(?P<r2_barcode>[ACGT]+)')
     reformatted_records = (igrecify_barcode(record, read_number, pattern)
                            for record in SeqIO.parse(fastq, "fastq"))
     SeqIO.write(reformatted_records, sys.stdout, 'fastq')
-    if timestamp:
+    if time:
         click.echo(timestamp(), err=True)
 
 
