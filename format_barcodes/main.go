@@ -48,8 +48,12 @@ func main() {
 	fmt.Println(seq.CloneAnnotation().Desc)
 
 	// -1 means return all found
-	findall := pattern.FindAllStringSubmatch(seq.CloneAnnotation().Desc, -1)
-	fmt.Println(findall)
+	findall := pattern.FindAllStringSubmatch(seq.CloneAnnotation().Desc, -1)[0]
+
+	fmt.Println("findall:", findall)
+	fmt.Println("findall[0]:", findall[0])
+	fmt.Println("findall[1]:", findall[1])
+	fmt.Println("findall[2]:", findall[2])
 
 	writer.Write(seq)
   }
