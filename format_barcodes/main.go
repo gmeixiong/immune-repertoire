@@ -67,6 +67,9 @@ func main() {
 
 	fmt.Println("replaced:", replaced)
 
+	// Reassign the description
+	seq.CloneAnnotation().Desc = replaced
+
 	writer.Write(seq)
   }
 }
