@@ -51,8 +51,8 @@ func main() {
 	if err == io.EOF {
 	  break
 	}
-
-	description := seq.CloneAnnotation().Desc
+	annotation := seq.CloneAnnotation()
+	description := annotation.Desc
 	fmt.Println("---", description, "---")
 
 	// -1 means return all found
@@ -68,7 +68,7 @@ func main() {
 	fmt.Println("replaced:", replaced)
 
 	// Reassign the description
-	seq.CloneAnnotation().Desc = replaced
+	annotation.SetDescription(replaced)
 
 	writer.Write(seq)
   }
