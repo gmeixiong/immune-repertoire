@@ -80,8 +80,8 @@ jupyter serverextension enable --py jupyterlab --sys-prefix
 
 ## Convert barcode-containing fastqs to something igrec understands
 cd /mnt/data/presto/output
-time python ~/olgabot-aws-scratch/format_barcodes.py /mnt/data/presto/output/BX-R1_primers-pass_pair-pass.fastq 1 > /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq
-time python ~/olgabot-aws-scratch/format_barcodes.py /mnt/data/presto/output/BX-R2_primers-pass_pair-pass.fastq 2 > /mnt/data/fastq/BX-R2_primers-pass_underscore_separated.fastq
+python -m pdb ~/olgabot-aws-scratch/format_barcodes.py --time /mnt/data/presto/output/BX-R1_primers-pass_pair-pass.fastq 1 > /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq
+python -m pdb ~/olgabot-aws-scratch/format_barcodes.py --time /mnt/data/presto/output/BX-R2_primers-pass_pair-pass.fastq 2 > /mnt/data/fastq/BX-R2_primers-pass_underscore_separated.fastq
 
 
 python run_igrec.py --barcoded \
@@ -91,4 +91,13 @@ python run_igrec.py --barcoded \
 
 
 ## Use Go to change the fastqs
+cd format_barcodes
+go build
 ./format_barcodes /mnt/data/presto/output/BX-R1_primers-pass_pair-pass_first3.fastq
+
+# Could also not build:
+# go run main.go /mnt/data/presto/output/BX-R1_primers-pass_pair-pass_first3.fastq
+# 2:N:0:0|SEQORIENT=F|PRIMER=RT_IgM_long_12N|BARCODE=TCGGAAAT,ACGGCAGA
+# 2:N:0:0|SEQORIENT=F|PRIMER=RT_IgM_long_12N|BARCODE=TCTTGTCT,ACGGTATA
+# 2:N:0:0|SEQORIENT=F|PRIMER=RT_IgM_long_12N|BARCODE=AATCCCGT,GGCAATTC
+
