@@ -7,6 +7,8 @@ import (
   "github.com/biogo/biogo/seq/linear"
   "github.com/biogo/biogo/alphabet"
   "fmt"
+  "github.com/biogo/biogo/io/seqio/fasta"
+  "regexp"
 )
 
 func main() {
@@ -23,6 +25,20 @@ func main() {
   // Create a fastq reader:
   reader := fastq.NewReader(fh, template)
 
+
+  // Open the output file for writing:
+  fho, err := os.Create(os.Args[2])
+  // Close the file after we finished writing:
+  defer fho.Close()
+  if err != nil {
+	panic(err)
+  }
+
+  pattern := regexp.Compile("BARCODE=(?P<r1_barcode>[ACGT]+),(?P<r2_barcode>[ACGT]+)")
+
+  // Create a fasta writer with width 80:
+  writer := fasta.NewWriter(fho, 80)
+
   for {
 	// Read the next record:
 	seq, err := reader.Read()
@@ -31,5 +47,11 @@ func main() {
 	  break
 	}
 	fmt.Println(seq.CloneAnnotation().Desc)
+
+	// -1 means return all found
+	findall := pattern.FindAllString(seq.CloneAnnotation().Desc, -1)
+	fmt.Println(findall)
+
+	writer.Write(seq)
   }
 }
