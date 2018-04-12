@@ -70,7 +70,11 @@ func main() {
 	// Reassign the description
 	annotation.SetDescription(replaced)
 
+	//seq_replaced := linear.NewQSeq(annotation, seq.Seq, )
+
 	fmt.Println("annotation.Desc:", annotation.Desc)
+	fmt.Println("annotation:", annotation)
+	fmt.Println("seq:", seq)
 
 
 	writer.Write(seq)
