@@ -58,10 +58,10 @@ func main() {
 	// -1 means return all found
 	findall := pattern.FindAllStringSubmatch(description, -1)[0]
 
-	fmt.Println("findall:", findall)
-	fmt.Println("findall[0]:", findall[0])
-	fmt.Println("findall[1]:", findall[1])
-	fmt.Println("findall[2]:", findall[2])
+	//fmt.Println("findall:", findall)
+	//fmt.Println("findall[0]:", findall[0])
+	//fmt.Println("findall[1]:", findall[1])
+	//fmt.Println("findall[2]:", findall[2])
 
 	replaced := pattern.ReplaceAllString(description, "BARCODE:" + findall[read_number])
 
@@ -69,6 +69,9 @@ func main() {
 
 	// Reassign the description
 	annotation.SetDescription(replaced)
+
+	fmt.Println("annotation.Desc:", annotation.Desc)
+
 
 	writer.Write(seq)
   }
