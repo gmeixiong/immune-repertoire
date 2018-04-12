@@ -1,4 +1,4 @@
-package format_barcodes
+package main
 
 import (
   "io"
