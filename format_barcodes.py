@@ -28,7 +28,7 @@ def cli(fastq, read_number):
     reformatted_records = (igrecify_barcode(record, read_number, pattern)
                            for record in SeqIO.parse(fastq, "fastq"))
 
-    SeqIO.write(sys.stdout, reformatted_records, fastq)
+    SeqIO.write(sys.stdout, reformatted_records, 'fastq')
 
 
 
