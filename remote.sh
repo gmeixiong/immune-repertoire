@@ -101,3 +101,9 @@ go build
 # 2:N:0:0|SEQORIENT=F|PRIMER=RT_IgM_long_12N|BARCODE=TCTTGTCT,ACGGTATA
 # 2:N:0:0|SEQORIENT=F|PRIMER=RT_IgM_long_12N|BARCODE=AATCCCGT,GGCAATTC
 
+
+# 20 min in serial in Python (!!)
+# ubuntu@olgabot-igrec-m4  git pull && python ~/olgabot-aws-scratch/format_barcodes.py --time /mnt/data/presto/output/BX-R1_primers-pass_pair-pass.fastq 1 > /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq
+# Current branch igrec is up to date.
+# 2018-04-17 05:06:27
+# 2018-04-17 05:26:33
