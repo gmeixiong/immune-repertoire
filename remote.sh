@@ -107,3 +107,17 @@ go build
 # Current branch igrec is up to date.
 # 2018-04-17 05:06:27
 # 2018-04-17 05:26:33
+
+# Still pretty long in parallel..
+#  ✘ ⚙  Tue 17 Apr - 05:59  ~/olgabot-aws-scratch   origin ☊ igrec ✔ 7☀ 
+#  ubuntu@olgabot-igrec-m4  git pull && python ~/olgabot-aws-scratch/format_barcodes.py --time --processors 16 /mnt/data/presto/output/BX-R1_primers-pass_pair-pass.fastq 1 > /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq
+# remote: Counting objects: 3, done.
+# remote: Compressing objects: 100% (1/1), done.
+# remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
+# Unpacking objects: 100% (3/3), done.
+# From https://github.com/czbiohub/olgabot-aws-scratch
+#    e632540..2845d87  igrec      -> origin/igrec
+# First, rewinding head to replay your work on top of it...
+# Fast-forwarded igrec to 2845d878c6b1a23480eb341fa2d73d65f1ba312a.
+# 2018-04-17 05:59:42
+# 2018-04-17 06:37:14
