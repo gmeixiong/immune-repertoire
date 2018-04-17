@@ -22,7 +22,16 @@ def maybe_make_directory(folder):
         pass
 
 
-def run_igrec(read1, read2, output_folder, barcoded=False):
+def maybe_unzip(read):
+    """Returns inline gunzipping if gzipped"""
+    if read.endswith('gz'):
+        return '$(gunzip -c {read})'
+    else:
+        return read
+
+
+def run_igrec(read1, read2, output_folder, barcoded=False,
+              organism='human', loci='IGH'):
     maybe_make_directory(output_folder)
 
     if barcoded:
@@ -33,10 +42,11 @@ def run_igrec(read1, read2, output_folder, barcoded=False):
     command = ['sudo',
                '/home/ubuntu/anaconda/envs/python2.7-env/bin/python2.7',
                igrec,
-              f'-1 {read1}',
-              f'-2 {read2}',
-              f'-o {output_folder} ',
-               '-l IGH']
+               f'-1 maybe_unzip({read1})',
+               f'-2 maybe_unzip({read2})',
+               f'-o {output_folder} ',
+               f'-l {loci}',
+               f'--organism {organism}']
     # command = shlex.split(command)
 
     stdout = f'{output_folder}/stdout.txt'
@@ -48,13 +58,16 @@ def run_igrec(read1, read2, output_folder, barcoded=False):
         with open(stderr, 'w') as file_err:
             subprocess.Popen(command, stdout=file_out, stderr=file_err)
 
+
 @click.command()
 @click.argument('read1')
 @click.argument('read2')
 @click.argument('output_folder')
 @click.option('--barcoded', is_flag=True)
-def cli(read1, read2, output_folder, barcoded):
-    run_igrec(read1, read2, output_folder, barcoded)
+@click.option('--organism', default="human")
+@click.option('--loci', default="IGH")
+def cli(read1, read2, output_folder, barcoded, organism, loci):
+    run_igrec(read1, read2, output_folder, barcoded, organism, loci)
 
 
 if __name__ == '__main__':

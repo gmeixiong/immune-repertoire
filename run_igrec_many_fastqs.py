@@ -9,7 +9,9 @@ from run_igrec import run_igrec
 @click.argument('output_prefix')
 @click.argument('fastqs', nargs=-1)
 @click.option('--barcoded', is_flag=True)
-def cli(output_prefix, fastqs, barcoded):
+@click.option('--organism', default="human")
+@click.option('--loci', default="IGH")
+def cli(output_prefix, fastqs, barcoded, organism="human", loci="IGH"):
     for fastq in fastqs:
         # Only operate on R1s to avoid duplication
         if "R2" in fastq:
@@ -23,7 +25,7 @@ def cli(output_prefix, fastqs, barcoded):
         output_folder = os.path.join(output_prefix, subfolder)
         print(f'output_folder: {output_folder}')
 
-        run_igrec(read1, read2, output_folder, barcoded)
+        run_igrec(read1, read2, output_folder, barcoded, organism, loci)
 
 
 if __name__ == '__main__':
