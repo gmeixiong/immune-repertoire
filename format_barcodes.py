@@ -8,6 +8,7 @@ import sys
 
 from Bio import SeqIO
 import click
+from joblib import Parallel, delayed
 
 
 def igrecify_barcode(record, read_number, pattern):
@@ -28,7 +29,9 @@ def timestamp():
 @click.argument('fastq', type=click.File())
 @click.argument('read_number', type=click.IntRange(1, 2))
 @click.option('--time', is_flag=True)
-def cli(fastq, read_number, time):
+@click.option('--processors', default=1,
+              help='Number of processors. Set to -1 to use maximum available')
+def cli(fastq, read_number, time, processors):
     """Converts presto-barcoded fastqo to igrec-formatted"""
 
     # print(fastq)
@@ -36,8 +39,13 @@ def cli(fastq, read_number, time):
         click.echo(timestamp(), err=True)
     pattern = re.compile(
         'BARCODE=(?P<r1_barcode>[ACGTN]+),(?P<r2_barcode>[ACGTN]+)')
-    reformatted_records = (igrecify_barcode(record, read_number, pattern)
-                           for record in SeqIO.parse(fastq, "fastq"))
+    if processors > 1:
+        reformatted_records = Parallel(n_jobs=processors)(
+            delayed(igrecify_barcode)(record, read_number, pattern)
+            for record in SeqIO.parse(fastq, "fastq"))
+    else:
+        reformatted_records = (igrecify_barcode(record, read_number, pattern)
+                               for record in SeqIO.parse(fastq, "fastq"))
     SeqIO.write(reformatted_records, sys.stdout, 'fastq')
     if time:
         click.echo(timestamp(), err=True)
