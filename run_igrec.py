@@ -25,7 +25,7 @@ def maybe_make_directory(folder):
 def maybe_unzip(read):
     """Returns inline gunzipping if gzipped"""
     if read.endswith('gz'):
-        return '$(gunzip -c {read})'
+        return f'$(gunzip -c {read})'
     else:
         return read
 
