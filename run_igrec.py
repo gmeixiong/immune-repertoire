@@ -33,10 +33,10 @@ def run_igrec(read1, read2, output_folder, barcoded=False):
     command = ['sudo',
                '/home/ubuntu/anaconda/envs/python2.7-env/bin/python2.7',
                igrec,
-              f'-1 $(gunzip -c {read1}) ',
-              f'-2 $(gunzip -c {read2}) ',
+              f'-1 ${read1}',
+              f'-2 ${read2}',
               f'-o {output_folder} ',
-               '-l IGH ']
+               '-l IGH']
     # command = shlex.split(command)
 
     stdout = f'{output_folder}/stdout.txt'
