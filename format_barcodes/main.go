@@ -9,6 +9,7 @@ import (
   "fmt"
   "regexp"
   "strconv"
+  "strings"
 )
 
 func main() {
@@ -64,18 +65,24 @@ func main() {
 	//fmt.Println("findall[2]:", findall[2])
 
 	replaced := pattern.ReplaceAllString(description, "BARCODE:" + findall[read_number])
-
+	replaced = strings.Replace(replaced, "|", "_", -1)
 	fmt.Println("replaced:", replaced)
 
 	// Reassign the description
 	annotation.SetDescription(replaced)
+	id_parts := []string{annotation.ID, replaced}
+	new_id := strings.Join(id_parts, " ")
 
-	//seq_replaced := linear.NewQSeq(annotation, seq.Seq, )
+	//seq_replaced := linear.NewQSeq(new_id, seq.Seq, seq.Alphabet(), alphabet.Sanger)
+	seq_replaced := linear.NewQSeq(new_id, seq.Seq, seq.Alphabet(), seq.Encode)
 
 	fmt.Println("annotation.Desc:", annotation.Desc)
 	fmt.Println("annotation:", annotation)
 	fmt.Println("seq:", seq)
+	fmt.Println("seq.Slice:", seq.Slice())
+	fmt.Println("new_id:", new_id)
 
+	//fmt.Println("seq_replaced:", seq_replaced)
 
 	writer.Write(seq)
   }
