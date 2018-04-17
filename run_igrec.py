@@ -41,6 +41,8 @@ def run_igrec(read1, read2, output_folder, barcoded=False):
 
     stdout = f'{output_folder}/stdout.txt'
     stderr = f'{output_folder}/stderr.txt'
+    
+    print(' '.join(command))
 
     with open(stdout, 'w') as file_out:
         with open(stderr, 'w') as file_err:
