@@ -29,7 +29,7 @@ def timestamp():
 @click.argument('fastq', type=click.File())
 @click.argument('read_number', type=click.IntRange(1, 2))
 @click.option('--time', is_flag=True)
-@click.option('--processors', default=1,
+@click.option('--processors', default=1, type=int,
               help='Number of processors. Set to -1 to use maximum available')
 def cli(fastq, read_number, time, processors):
     """Converts presto-barcoded fastqo to igrec-formatted"""
