@@ -35,7 +35,7 @@ def cli(fastq, read_number, time):
     if time:
         click.echo(timestamp(), err=True)
     pattern = re.compile(
-        'BARCODE=(?P<r1_barcode>[ACGT]+),(?P<r2_barcode>[ACGT]+)')
+        'BARCODE=(?P<r1_barcode>[ACGTN]+),(?P<r2_barcode>[ACGTN]+)')
     reformatted_records = (igrecify_barcode(record, read_number, pattern)
                            for record in SeqIO.parse(fastq, "fastq"))
     SeqIO.write(reformatted_records, sys.stdout, 'fastq')
