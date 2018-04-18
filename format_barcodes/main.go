@@ -39,7 +39,7 @@ func main() {
 	panic(err)
   }
 
-  pattern := regexp.MustCompile("BARCODE=(?P<r1_barcode>[ACGT]+),(?P<r2_barcode>[ACGT]+)")
+  pattern := regexp.MustCompile("BARCODE=(?P<r1_barcode>[ACGTN]+),(?P<r2_barcode>[ACGTN]+)")
 
   // Create a fasta writer with width 80:
   writer := fastq.NewWriter(fho)
