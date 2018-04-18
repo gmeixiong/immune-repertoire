@@ -1,7 +1,6 @@
 package main
 
 import (
-  "io"
   "github.com/biogo/biogo/io/seqio/fastq"
   "os"
   "github.com/biogo/biogo/seq/linear"
@@ -10,6 +9,7 @@ import (
   "regexp"
   "strconv"
   "strings"
+  "github.com/biogo/biogo/io/seqio"
 )
 
 func main() {
@@ -24,7 +24,7 @@ func main() {
   // Create a template sequence for the reader:
   template := linear.NewQSeq("", alphabet.QLetters{}, alphabet.DNA, alphabet.Sanger)
   // Create a fastq reader:
-  reader := fastq.NewReader(fh, template)
+  sc := seqio.NewScanner(fastq.NewReader(fh, template))
 
   // convert string argument to number
   read_number, err := strconv.Atoi(os.Args[2])
@@ -45,13 +45,10 @@ func main() {
   // Create a fasta writer with width 80:
   writer := fastq.NewWriter(fho)
 
-  for {
-	// Read the next record:
-	seq, err := reader.Read()
-	// Break loop if we reached the end of the file:
-	if err == io.EOF {
-	  break
-	}
+  for sc.Next() {
+	seq := sc.Seq().(*linear.QSeq)
+	// do stuff with seq as a *linear.QSeq
+
 	annotation := seq.CloneAnnotation()
 	description := annotation.Desc
 	fmt.Println("---", description, "---")
@@ -59,12 +56,7 @@ func main() {
 	// -1 means return all found
 	findall := pattern.FindAllStringSubmatch(description, -1)[0]
 
-	//fmt.Println("findall:", findall)
-	//fmt.Println("findall[0]:", findall[0])
-	//fmt.Println("findall[1]:", findall[1])
-	//fmt.Println("findall[2]:", findall[2])
-
-	replaced := pattern.ReplaceAllString(description, "BARCODE:" + findall[read_number])
+	replaced := pattern.ReplaceAllString(description, "BARCODE:"+findall[read_number])
 	replaced = strings.Replace(replaced, "|", "_", -1)
 	fmt.Println("replaced:", replaced)
 
@@ -72,18 +64,14 @@ func main() {
 	annotation.SetDescription(replaced)
 	id_parts := []string{annotation.ID, replaced}
 	new_id := strings.Join(id_parts, " ")
-
-	//seq_replaced := linear.NewQSeq(new_id, seq.Seq, seq.Alphabet(), alphabet.Sanger)
 	seq_replaced := linear.NewQSeq(new_id, seq.Seq, seq.Alphabet(), seq.Encode)
 
-	fmt.Println("annotation.Desc:", annotation.Desc)
-	fmt.Println("annotation:", annotation)
-	fmt.Println("seq:", seq)
-	fmt.Println("seq.Slice:", seq.Slice())
-	fmt.Println("new_id:", new_id)
-
-	//fmt.Println("seq_replaced:", seq_replaced)
-
-	writer.Write(seq)
+	writer.Write(seq_replaced)
   }
+  err = sc.Error()
+  // handle errors
+  if err != nil {
+	panic(err)
+  }
+
 }
