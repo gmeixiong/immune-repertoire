@@ -5,7 +5,6 @@ import (
   "os"
   "github.com/biogo/biogo/seq/linear"
   "github.com/biogo/biogo/alphabet"
-  "fmt"
   "regexp"
   "strconv"
   "strings"
@@ -51,14 +50,12 @@ func main() {
 
 	annotation := seq.CloneAnnotation()
 	description := annotation.Desc
-	fmt.Println("---", description, "---")
 
 	// -1 means return all found
 	findall := pattern.FindAllStringSubmatch(description, -1)[0]
 
 	replaced := pattern.ReplaceAllString(description, "BARCODE:"+findall[read_number])
 	replaced = strings.Replace(replaced, "|", "_", -1)
-	fmt.Println("replaced:", replaced)
 
 	// Reassign the description
 	annotation.SetDescription(replaced)
