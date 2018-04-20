@@ -61,11 +61,22 @@ source activate python2.7-env
   --output barcoded_igrec --loci IGH
 
 
-## Run non-barcoded igrec
+## Run non-barcoded igrec on first 100k reads
 source activate python2.7-env
 python ./run_igrec.py $DATA_DIR/IgSeqBX1_S1_R1_001_first100k.fastq \
     $DATA_DIR/IgSeqBX1_S1_R2_001_first100k.fastq nonbarcoded_igrec_first1M
 
+
+## Run non-barcoded igrec on all reads
+source activate python2.7-env
+export DATA_DIR=/mnt/data/krista/rawdata
+sudo /home/ubuntu/anaconda/envs/python2.7-env/bin/python2.7 \
+    /home/ubuntu/ig_repertoire_constructor/igrec.py \
+    -1 $DATA_DIR/IgSeqBX1_S1_R1_001.fastq \
+    -2 $DATA_DIR/IgSeqBX1_S1_R2_001.fastq \
+    -l IGH \
+    --organism human \
+    -o /mnt/data/igrec_nonbarcoded_IgSeqBX1
 
 
 ## Run ChangeO and Alakazam through Immcantation docker image
