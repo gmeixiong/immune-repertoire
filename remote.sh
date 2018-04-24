@@ -101,6 +101,12 @@ python run_igrec.py --barcoded \
     igrec_on_presto_primers_pass_underscore_separated_v2
 
 
+python ~/code/olgabot-aws-scratch/run_igrec.py \
+    /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq \
+    /mnt/data/fastq/BX-R2_primers-pass_underscore_separated.fastq \
+    /mnt/data/igrec_on_presto_primers_pass_underscore_separated_v2_nonbarcoded
+
+
 ## Use Go to change the fastqs
 cd format_barcodes
 go build
@@ -132,3 +138,9 @@ go build
 # Fast-forwarded igrec to 2845d878c6b1a23480eb341fa2d73d65f1ba312a.
 # 2018-04-17 05:59:42
 # 2018-04-17 06:37:14
+
+
+### Format barcodes usign Go:
+cd ~/olgabot-aws-scratch/format_barcodes
+go build
+./format_barcodes /mnt/data/presto/output/BX-R1_primers-pass_pair-pass.fastq 1 /mnt/data/fastq/BX-R1_primers-pass_underscore_separated_go.fastq
