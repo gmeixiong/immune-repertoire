@@ -95,16 +95,23 @@ python -m pdb ~/olgabot-aws-scratch/format_barcodes.py --time /mnt/data/presto/o
 python -m pdb ~/olgabot-aws-scratch/format_barcodes.py --time /mnt/data/presto/output/BX-R2_primers-pass_pair-pass.fastq 2 > /mnt/data/fastq/BX-R2_primers-pass_underscore_separated.fastq
 
 
+# Barcoded Igrec
 python run_igrec.py --barcoded \
     /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq \
     /mnt/data/fastq/BX-R2_primers-pass_underscore_separated.fastq \
     igrec_on_presto_primers_pass_underscore_separated_v2
 
-
+# Nonbarcoded igrec
 python ~/code/olgabot-aws-scratch/run_igrec.py \
     /mnt/data/fastq/BX-R1_primers-pass_underscore_separated.fastq \
     /mnt/data/fastq/BX-R2_primers-pass_underscore_separated.fastq \
     /mnt/data/igrec_on_presto_primers_pass_underscore_separated_v2_nonbarcoded
+
+# Barcoded igrec, using the combined barcode
+python ~/code/olgabot-aws-scratch/run_igrec.py \
+    /mnt/data/BX_miseq/presto/output/BX-R1_primers-pass_pair-pass_reheader.fastq \
+    /mnt/data/BX_miseq/presto/output/BX-R2_primers-pass_pair-pass_reheader.fastq  \
+    /mnt/data/igrec_on_presto_primers_pass_reheader_barcoded
 
 
 ## Use Go to change the fastqs
