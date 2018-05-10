@@ -52,7 +52,7 @@ func main() {
 
 	annotation := seq.CloneAnnotation()
 	description := annotation.Desc
-	fmt.Println("i:", i, "\tID:", description)
+	fmt.Println("i:", i,  "\tID:", annotation.ID, "\tdescription:", description)
 
 	// -1 means return all found
 	findall := pattern.FindAllStringSubmatch(description, -1)[0]
