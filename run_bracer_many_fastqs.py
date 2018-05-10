@@ -42,6 +42,7 @@ def cli(fastq_gzs, config_file, species, output_folder, n_processes):
         command = f'bracer assemble ' \
                   f'-p {n_processes} ' \
                   f'--config_file {config_file} ' \
+                   '--no_trimming ' \
                   f'--species {species} ' \
                   f'{sample_id} ' \
                   f'{output_folder} ' \
