@@ -109,8 +109,8 @@ python ~/code/olgabot-aws-scratch/run_igrec.py \
 
 # Barcoded igrec, using the combined barcode
 python ~/code/olgabot-aws-scratch/run_igrec.py \
-    /mnt/data/BX_miseq/presto/output/BX-R1_primers-pass_pair-pass_reheader.fastq \
-    /mnt/data/BX_miseq/presto/output/BX-R2_primers-pass_pair-pass_reheader.fastq  \
+    /mnt/data/presto/output/BX-R1_primers-pass_pair-pass_reheader.fastq \
+    /mnt/data/presto/output/BX-R2_primers-pass_pair-pass_reheader.fastq  \
     /mnt/data/igrec_on_presto_primers_pass_reheader_barcoded
 
 

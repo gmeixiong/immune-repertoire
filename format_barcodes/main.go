@@ -9,6 +9,7 @@ import (
   "strconv"
   "strings"
   "github.com/biogo/biogo/io/seqio"
+  "fmt"
 )
 
 func main() {
@@ -44,12 +45,14 @@ func main() {
   // Create a fasta writer with width 80:
   writer := fastq.NewWriter(fho)
 
+  var i uint8 = 0
   for sc.Next() {
 	seq := sc.Seq().(*linear.QSeq)
 	// do stuff with seq as a *linear.QSeq
 
 	annotation := seq.CloneAnnotation()
 	description := annotation.Desc
+	fmt.Println("i:", i, "\tID:", description)
 
 	// -1 means return all found
 	findall := pattern.FindAllStringSubmatch(description, -1)[0]
@@ -64,6 +67,7 @@ func main() {
 	seq_replaced := linear.NewQSeq(new_id, seq.Seq, seq.Alphabet(), seq.Encode)
 
 	writer.Write(seq_replaced)
+	i++
   }
   err = sc.Error()
   // handle errors
