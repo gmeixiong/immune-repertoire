@@ -85,4 +85,8 @@ bracer assemble -p 16 --config_file /mnt/data/fastq/bracer.conf --species Mmus \
 
 touch /home/ubuntu/anaconda/lib/python3.6/site-packages/bracer.conf
 
-python ~/code/olgabot-aws-scratch/run_bracer_many_fastqs.py /mnt/data/fastq/*fastq.gz
+python ~/code/immune-repertoire/run_bracer_many_fastqs.py \
+    --config-file ~/code/immune-repertoire/bracer.conf \
+    --species Hsap \
+    --output-folder /mnt/data/bracer-output/ \
+    /mnt/data/fastqs/*fastq.gz
