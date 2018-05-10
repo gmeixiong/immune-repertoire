@@ -20,6 +20,10 @@ cd bracer
 pip install .
 
 
+aws s3 sync s3://olgabot-genomes/ /mnt/data/genomes
+ls -1 /mnt/data/genomes/**/*.gz | xargs gunzip
+
+
 # Run Bracer
 bracer assemble -p 16 --species Mmus --config_file /mnt/data/fastq/bracer.conf \
     P9-MAA001889-3_38_F-1-1_S239_junc500 \
