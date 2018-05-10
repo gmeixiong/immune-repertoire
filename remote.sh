@@ -90,3 +90,10 @@ python ~/code/immune-repertoire/run_bracer_many_fastqs.py \
     --species Hsap \
     --output-folder /mnt/data/bracer-output/ \
     /mnt/data/fastqs/*fastq.gz
+
+# Add --no_trimming flag to bracer
+python ~/code/immune-repertoire/run_bracer_many_fastqs.py \
+    --config-file ~/code/immune-repertoire/bracer.conf \
+    --species Hsap \
+    --output-folder /mnt/data/bracer-output_v2/ \
+    /mnt/data/fastqs/*fastq.gz
