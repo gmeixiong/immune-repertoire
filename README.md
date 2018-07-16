@@ -9,11 +9,17 @@ reflow -cache off run tracer.rf -read1 [read1] -read2 [read2] -cell_name [cell n
 
 
 
+
+
 For batch run:
 
+
 cd experiments/
+
 cd tracer/
 
+
 Fill out tracer_run.csv with appropriate information
+
 
 reflow -cache off runbatch --reset
