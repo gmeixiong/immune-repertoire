@@ -1,0 +1,4 @@
+{
+  "program": "../../reflow/tracer.rf",
+  "runs_file": "tracer_run.csv"
+}

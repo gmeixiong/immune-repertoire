@@ -1,0 +1,41 @@
+/* Reflow workflow for B-cell repertoire sequencing pipeline, BraCeR. 
+
+   author: Gerry Meixiong, CZ Biohub
+   date: 7.16.18												*/
+
+/* Input: read1 and read2 are FASTQ files containing #1 and #2 mates from paired-
+   end sequencing. read1 can be all reads from single-end sequencing. In this case,
+   do not input a read2. Results will be saved to results_bucket/bracer/cell_name/
+   results_bucket must be of the format "s3://<bucket_name>" */
+param (
+	cell_name string
+	results_bucket string
+	read1 string
+	read2 string
+	docker_image = "teichlab/bracer"
+	species = "Hsap"
+	ncores = 4
+)
+
+val dirs = make("$/dirs")
+val strings = make("$/strings")
+
+func BracerRun(read1, read2 file, cell_name string) dir = 
+	exec(image := docker_image, mem := 8*GiB) (out dir) {"
+		export IGDATA=/ncbi-igblast-1.4.0/bin
+		cp /bracer/docker_helper_files/docker_bracer.conf ~/.bracerrc
+	    mv {{read1}} read1.fastq
+	    mv {{read2}} read2.fastq
+
+	    bracer assemble --ncores {{ncores}} --species {{species}} \
+	    {{cell_name}} {{out}} read1.fastq read2.fastq
+
+	    bracer summarize --species {{species}} {{out}}
+	"}
+
+val bracer = BracerRun(file(read1), file(read2), cell_name)
+val bracer_bucket = dirs.Copy(bracer, strings.Join([results_bucket, "bracer", cell_name], "/"))
+
+@requires(cpu := 8, disk := 200*GiB)
+val Main = bracer_bucket
+

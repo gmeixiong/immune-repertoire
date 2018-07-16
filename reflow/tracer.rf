@@ -1,0 +1,41 @@
+/* Reflow workflow for T-cell repertoire sequencing pipeline, TraCeR. 
+
+   author: Gerry Meixiong, CZ Biohub
+   date: 7.16.18												*/
+
+/* Input: file_1 and file_2 are FASTQ files containing #1 and #2 mates from paired-
+   end sequencing. read1 can be all reads from single-end sequencing. In this case,
+   do not input a read2. Results will be saved to results_bucket/tracer/cell_name/
+   results_bucket must be of the format "s3://<bucket_name>" */
+param (
+	cell_name string
+	results_bucket string
+	read1 string
+	read2 string
+	docker_image = "teichlab/tracer"
+	species = "Hsap"
+	ncores = 4
+)
+
+val dirs = make("$/dirs")
+val strings = make("$/strings")
+
+func TracerRun(read1, read2 file, cell_name string) dir = 
+	exec(image := docker_image, mem := 8*GiB) (out dir) {"
+		export IGDATA=/ncbi-igblast-1.7.0/bin
+		cp /tracer/docker_helper_files/docker_tracer.conf ~/.tracerrc
+
+	    mv {{read1}} read1.fastq
+	    mv {{read2}} read2.fastq
+
+	    tracer assemble --ncores {{ncores}} --species {{species}} \
+	    read1.fastq read2.fastq {{cell_name}} {{out}}
+
+	    tracer summarize --species {{species}} {{out}}
+	"}
+
+val tracer = TracerRun(file(read1), file(read2), cell_name)
+val tracer_bucket = dirs.Copy(tracer, strings.Join([results_bucket, "tracer", cell_name], "/"))
+
+@requires(cpu := 8, disk := 200*GiB)
+val Main = tracer_bucket
