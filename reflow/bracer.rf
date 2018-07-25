@@ -21,14 +21,13 @@ val dirs = make("$/dirs")
 val strings = make("$/strings")
 
 func BracerRun(read1, read2 file, cell_name string) dir = 
+	d := dirs.Make(["read1.fastq": read1, "read2.fastq": read2])
 	exec(image := docker_image, mem := 8*GiB) (out dir) {"
 		export IGDATA=/ncbi-igblast-1.4.0/bin
 		cp /bracer/docker_helper_files/docker_bracer.conf ~/.bracerrc
-	    mv {{read1}} read1.fastq
-	    mv {{read2}} read2.fastq
 
 	    bracer assemble --ncores {{ncores}} --species {{species}} \
-	    {{cell_name}} {{out}} read1.fastq read2.fastq
+	    {{cell_name}} {{out}} {{d}}/read1.fastq {{d}}/read2.fastq
 
 	    bracer summarize --species {{species}} {{out}}
 	"}
